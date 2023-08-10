@@ -20,7 +20,7 @@ public class MergeSubArrays {
         result.add(interval);
         continue;
       }
-      if(interval[0]<=lastResult[1] && interval[1]>lastResult[1]) {
+      if(interval[1]>lastResult[1]) {
         lastResult[1] = interval[1];
       }
     }
