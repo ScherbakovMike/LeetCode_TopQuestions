@@ -1,28 +1,6 @@
 package Trees.MaximumDepthOfBinaryTree;
 
-import com.sun.source.tree.Tree;
-
-import java.util.concurrent.atomic.AtomicInteger;
-
-//Definition for a binary tree node.
-class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode() {
-    }
-
-    TreeNode(int val) {
-        this.val = val;
-    }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
+import LinkedInTop.TreeNode;
 
 public class Solution {
     public int maxDepth(TreeNode root) {
