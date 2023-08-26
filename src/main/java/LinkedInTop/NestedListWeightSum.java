@@ -1,32 +1,55 @@
 package LinkedInTop;
 
+import java.util.ArrayList;
 import java.util.List;
 
-// This is the interface that allows for creating nested lists.
-// You should not implement it, or speculate about its implementation
-interface NestedInteger {
-  //      // Constructor initializes an empty nested list.
-//      public NestedInteger();
-//
-//      // Constructor initializes a single integer.
-//      public NestedInteger(int value);
-//
-  // @return true if this NestedInteger holds a single integer, rather than a nested list.
-  public boolean isInteger();
+class NestedInteger {
+  private Integer val;
+  private List<NestedInteger> list;
 
-  // @return the single integer that this NestedInteger holds, if it holds a single integer
-  // Return null if this NestedInteger holds a nested list
-  public Integer getInteger();
+  public NestedInteger() {
+    this.list = new ArrayList<>();
+    this.val = 0;
+  }
 
-  // Set this NestedInteger to hold a single integer.
-  public void setInteger(int value);
+  public NestedInteger(int v) {
+    this.val = v;
+    this.list = new ArrayList<>();
+  }
 
-  // Set this NestedInteger to hold a nested list and adds a nested integer to it.
-  public void add(NestedInteger ni);
+  public NestedInteger(NestedInteger ni) {
+    this.list = new ArrayList<>();
+    this.list.add(ni);
+    this.val = 0;
+  }
 
-  // @return the nested list that this NestedInteger holds, if it holds a nested list
-  // Return empty list if this NestedInteger holds a single integer
-  public List<NestedInteger> getList();
+  public boolean isInteger() {
+    return list.isEmpty();
+  }
+
+  public Integer getInteger() {
+    return this.val;
+  }
+
+  public void setInteger(int v) {
+    this.val = v;
+  }
+
+  public void add(NestedInteger ni) {
+    list.add(ni);
+  }
+
+  public List<NestedInteger> getList() {
+    return list;
+  }
+
+  public static NestedInteger fromIntegers(int... ints) {
+    var result = new NestedInteger();
+    for (var n : ints) {
+      result.add(new NestedInteger(n));
+    }
+    return result;
+  }
 }
 
 public class NestedListWeightSum {
