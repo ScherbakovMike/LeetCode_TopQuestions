@@ -12,7 +12,6 @@ public class PartitionToKEqualSumSubsetsNaive {
       return false;
     }
     var desiredSum = totalSum / k;
-    Arrays.sort(nums);
     if (nums[nums.length - 1] > desiredSum) {
       return false;
     }
