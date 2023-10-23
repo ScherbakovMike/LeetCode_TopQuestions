@@ -39,7 +39,7 @@ public class SecondMinimumNodeInABinaryTree {
     return minValue == null ? -1 : minValue;
   }
 
-  private  void addChildrenToQueue(TreeNode curElem, LinkedList<TreeNode> queue) {
+  private void addChildrenToQueue(TreeNode curElem, LinkedList<TreeNode> queue) {
     if (curElem.right != null) {
       queue.add(curElem.right);
     }
