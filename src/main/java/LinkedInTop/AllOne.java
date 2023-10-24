@@ -1,6 +1,5 @@
 package LinkedInTop;
 
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -41,7 +40,13 @@ class AllOne {
 
   public AllOne() {
     this.keys = new HashMap<>();
-    this.statistic = new TreeSet<>(Comparator.comparingInt(node -> node.count));
+    this.statistic = new TreeSet<>((o1, o2) -> {
+      if (o1.count == o2.count) {
+        return o1.key.compareTo(o2.key);
+      } else {
+        return o1.count - o2.count;
+      }
+    });
   }
 
   public void inc(String key) {
@@ -63,7 +68,7 @@ class AllOne {
       node = keys.get(key);
       statistic.remove(node);
       node.count--;
-      if(node.count==0) {
+      if (node.count == 0) {
         keys.remove(key);
       } else {
         statistic.add(node);
@@ -74,20 +79,32 @@ class AllOne {
   }
 
   public String getMaxKey() {
+    if (statistic.isEmpty()) {
+      return "";
+    }
     return statistic.last().key;
   }
 
   public String getMinKey() {
+    if (statistic.isEmpty()) {
+      return "";
+    }
     return statistic.first().key;
   }
 
   public static void main(String[] args) {
     var stack = new AllOne();
-    stack.inc("hello");
-    stack.inc("hello");
-    System.out.println(stack.getMaxKey());
-    System.out.println(stack.getMinKey());
-    stack.inc("leet");
+
+    //["AllOne","inc","inc","inc","inc","inc","dec","dec","getMaxKey","getMinKey"]
+    //[[],["a"],["b"],["b"],["b"],["b"],["b"],["b"],[],[]]
+
+    stack.inc("a");
+    stack.inc("b");
+    stack.inc("b");
+    stack.inc("b");
+    stack.inc("b");
+    stack.dec("b");
+    stack.dec("b");
     System.out.println(stack.getMaxKey());
     System.out.println(stack.getMinKey());
   }
