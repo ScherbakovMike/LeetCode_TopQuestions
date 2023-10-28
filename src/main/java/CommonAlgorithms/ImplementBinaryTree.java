@@ -4,9 +4,9 @@ import java.lang.reflect.Array;
 
 public class ImplementBinaryTree {
 
-  static class BinaryTree<T extends Comparable<T>> {
+  public static class BinaryTree<T extends Comparable<T>> {
 
-    private Node<T> root;
+    public Node<T> root;
 
     public BinaryTree(T value) {
       this.root = new Node<>(value, null, null);
@@ -98,19 +98,28 @@ public class ImplementBinaryTree {
       }
     }
 
-    private static class Node<T extends Comparable<T>> {
+    private void printTree() {
+      System.out.println(this.root.toString(1));
+    }
 
-      private T value;
-      private Node<T> left;
-      private Node<T> right;
+    public static class Node<T extends Comparable<T>> {
+
+      public T value;
+      public Node<T> left;
+      public Node<T> right;
 
       @Override
       public String toString() {
-        return "Node{" +
-            "value=" + value +
-            ", left=" + left +
-            ", right=" + right +
-            '}';
+        return String.format("value = %s%nleft = %s%nright = %s%n", value,
+            left == null ? "" : left.toString(),
+            right == null ? "" : right.toString());
+      }
+
+      public String toString(int tabs) {
+        return String.format("value = %s%n%sleft = %s%n%sright = %s%n",
+            value,
+            "\t".repeat(tabs), left == null ? "" : left.toString(tabs + 1),
+            "\t".repeat(tabs), right == null ? "" : right.toString(tabs + 1));
       }
 
       public Node(T value, Node<T> left, Node<T> right) {
@@ -135,12 +144,11 @@ public class ImplementBinaryTree {
     tree.insert(60);
     tree.insert(55);
     tree.insert(65);
-
+    tree.printTree();
     System.out.println(tree.lookup(55));
     System.out.println(tree.lookup(70));
 
     tree.remove(50);
     System.out.println(tree.lookup(50));
   }
-
 }
