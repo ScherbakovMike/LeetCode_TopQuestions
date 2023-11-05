@@ -22,7 +22,6 @@ public class ImplementBellmanFordAlgorithm {
     // shortest path from src to any other
     // vertex can have at-most |V| - 1 edges
     for (var i = 0; i < nodes - 1; i++) {
-      // делаем V-1 итераций
       for (var j = 0; j < edges; j++) {
         var node1 = graph[j][0];
         var node2 = graph[j][1];
