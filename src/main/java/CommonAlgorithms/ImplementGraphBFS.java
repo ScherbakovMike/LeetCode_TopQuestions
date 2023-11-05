@@ -25,7 +25,7 @@ public class ImplementGraphBFS {
     var queue = new LinkedList<>(graph.get(startName));
     var searched = new ArrayList<String>();
     while (!queue.isEmpty()) {
-      var person = queue.pop();
+      var person = queue.poll();
       if (searched.contains(person)) {
         continue;
       }
