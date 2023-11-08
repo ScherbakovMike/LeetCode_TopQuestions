@@ -1,34 +1,23 @@
 package Array.BestTimeTtoBuyAndSellStock;
 
 class Solution {
+
   public int maxProfit(int[] prices) {
-    int profit = 0;
-    int left = 0;
-    int right = left + 1;
-    do {
-      while ((left+1) < prices.length && prices[left] >= prices[left + 1]) {
-        left++;
-        right++;
+    var minPrice = Integer.MAX_VALUE;
+    var maxProfit = 0;
+    for (var price : prices) {
+      if (price < minPrice) {
+        minPrice = price;
       }
-      if (left == prices.length) {
-        break;
+      if (price - minPrice > maxProfit) {
+        maxProfit = price - minPrice;
       }
-
-      while (right < prices.length && prices[right - 1] <= prices[right]) {
-        right++;
-      }
-
-      profit += (prices[right - 1] - prices[left]);
-
-      left = right - 1;
-      right = left + 1;
-    } while (right < prices.length);
-
-    return profit;
+    }
+    return maxProfit;
   }
 
   public static void main(String[] args) {
-    var test = new int[]{10, 3, 3, 4, 5, 6};
+    var test = new int[]{10, 3, 5, 10, 0, 200, 1};
     System.out.println(new Solution().maxProfit(test));
   }
 }
