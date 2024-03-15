@@ -6,7 +6,7 @@ public class ImplementBinaryTree {
 
   public static class BinaryTree<T extends Comparable<T>> {
 
-    public Node<T> root;
+    Node<T> root;
 
     public BinaryTree(T value) {
       this.root = new Node<>(value, null, null);
@@ -128,7 +128,6 @@ public class ImplementBinaryTree {
         this.right = right;
       }
     }
-
   }
 
   public static void main(String[] args) {

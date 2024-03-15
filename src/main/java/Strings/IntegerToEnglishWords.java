@@ -46,13 +46,12 @@ public class IntegerToEnglishWords {
       num -= numbers[j] * (num / numbers[j]);
       resultLeft.append(numberToWordsRecursive(num / numbers[j]));
       resultLeft.append(" ");
-
     }
     resultLeft.append(numberToWordsRecursive(num));
     return resultLeft.toString().trim();
   }
 
   public static void main(String[] args) {
-    System.out.println(new IntegerToEnglishWords().numberToWords(1));
+    System.out.println(new IntegerToEnglishWords().numberToWords(21));
   }
 }
