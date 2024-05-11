@@ -1,6 +1,4 @@
-package Array.RemoveDuplicatesFromSortedArray;
-
-import java.util.Arrays;
+package Array.RemoveDuplicatesFromSortedArray_26;
 
 // 1 2 4 4 5 6 7 8 9
 class Solution {

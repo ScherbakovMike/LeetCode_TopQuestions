@@ -1,4 +1,4 @@
-package Array.TwoSum;
+package Array.TwoSum_1;
 
 import java.util.*;
 
