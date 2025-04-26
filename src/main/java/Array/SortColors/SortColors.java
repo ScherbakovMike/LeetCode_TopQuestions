@@ -1,47 +1,55 @@
 package Array.SortColors;
 
+import java.util.*;
+
+/*
+75. Sort Colors
+https://leetcode.com/problems/sort-colors/description/
+
+Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
+We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
+
+You must solve this problem without using the library's sort function.
+
+Example 1:
+Input: nums = [2,0,2,1,1,0]
+Output: [0,0,1,1,2,2]
+Example 2:
+
+Input: nums = [2,0,1]
+Output: [0,1,2]
+
+Constraints:
+
+n == nums.length
+1 <= n <= 300
+nums[i] is either 0, 1, or 2.
+
+Follow up: Could you come up with a one-pass algorithm using only constant extra space?
+ */
 public class SortColors {
 
     public static int[] sortColors(int[] colors) {
         var pos0 = 0;
         var pos2 = colors.length - 1;
-        var i = 0;
-        while (i <= pos2) {
-            if (colors[i] == 2) {
-                if (i == pos2) {
-                    i++;
-                    pos2--;
-                    continue;
-                }
-                // move this number to the end
-                var buf = colors[pos2];
-                colors[pos2] = colors[i];
-                colors[i] = buf;
-                pos2--;
-            } else if (colors[i] == 0) {
-                if (i == pos0) {
-                    i++;
-                    pos0++;
-                    continue;
-                }
-                // move this number to the beginning
-                var buf = colors[pos0];
-                colors[pos0] = colors[i];
-                colors[i] = buf;
+        // Write your code here
+        for (var i = 0; i < colors.length; i++) {
+            if (colors[i] == 0 && i > pos0) {
+                colors[i] = colors[pos0];
+                colors[pos0] = 0;
                 pos0++;
-            } else i++;
+            }
+            if (colors[i] == 2 && i < pos2) {
+                colors[i] = colors[pos2];
+                colors[pos2] = 2;
+                pos2--;
+            }
         }
         return colors;
     }
 
     public static void main(String[] args) {
         var colors = new int[]{2, 0, 2, 1, 1, 0};
-//        var colors = new int[]{1, 1, 0, 2};
-//        var colors = new int[]{0,1,0};
-//        var colors = new int[]{2, 1, 1, 0, 0};
-        var result = sortColors(colors);
-        for (var color : result) {
-            System.out.print(color + " ");
-        }
+        System.out.println(Arrays.toString(sortColors(colors)));
     }
 }
