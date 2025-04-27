@@ -4,48 +4,54 @@ public class NextPalindromeUsingSameDigits {
 
     public static String findNextPalindrome(String numStr) {
         char[] arr = numStr.toCharArray();
-        int rangeRight = 0;
-        if (arr.length % 2 == 0) {
-            rangeRight = arr.length / 2;
-        } else {
-            rangeRight = arr.length / 2 - 1;
-        }
+        int rangeRight;
+        rangeRight = arr.length / 2 - 1;
         int i = rangeRight - 1;
-        // find the place where we can swap digits
-        // 12321
         while (i >= 0 && arr[i] >= arr[i + 1]) {
             i--;
         }
-        if (i < 0) {
-            return "";
-        }
-        // find ar right the digit that is slightly bigger than arr[i]
-        int j = i + 1;
-        int diff = Integer.MAX_VALUE;
-        int nextBiggerIndex = i + 1;
-        while (j <= rangeRight) {
-            if ((arr[j] - arr[i]) < diff) {
-                nextBiggerIndex = j;
-                diff = arr[j] - arr[i];
+        int j = rangeRight;
+        if (i >= 0) {
+            // place at the ith position the next number
+            while (j >= i && arr[j] <= arr[i]) {
+                j--;
             }
-            j++;
+            swap(arr, i, j);
+        } else return "";
+        int k = i + 1;
+        int l = rangeRight;
+        while (k < l) {
+            swap(arr, k, l);
+            k++;
+            l--;
         }
-        // swap arr[i] and arr[nextBiggerIndex]
-        char buf = arr[i];
-        arr[i] = arr[nextBiggerIndex];
-        arr[nextBiggerIndex] = buf;
 
         // mirror string
-        for (int k = 0; k < arr.length / 2; k++) {
+        for (k = 0; k < arr.length / 2; k++) {
             arr[arr.length - 1 - k] = arr[k];
         }
         return new String(arr);
     }
 
+    static void swap(char[] arr, int i, int j) {
+        char temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
     public static void main(String[] args) {
-        String numStr = "23143034132";
+//        Input
+//                num =
+//
+//        "4534589961 9 1699854354
+//        Use Testcase
+//        Output
+//        "4534589916 9 6199854354"
+//        Expected
+//        "4534591689 9 9861954354"
+        String numStr = "1231321";
         String result = findNextPalindrome(numStr);
         System.out.println("Next palindrome using same digits: " + result);
-        // 23314 041332
+        // 4534591689 9 9861954354
     }
 }
