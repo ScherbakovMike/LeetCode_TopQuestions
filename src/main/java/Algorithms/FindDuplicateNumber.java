@@ -34,19 +34,44 @@ public class FindDuplicateNumber {
     // Negative Marking
     // Time complexity: O(n)
     // Space complexity: O(1)
+//    public int findDuplicate(int[] nums) {
+//        // negative marking algorithm
+//        // applicable only if nums values fit to the array indexes
+//        // and all elements have the same sign.
+//        for (int i = 0; i < nums.length; i++) {
+//            int markPos = Math.abs(nums[i]);
+//            if (nums[markPos] < 0) return Math.abs(nums[i]);
+//            nums[markPos] *= -1;
+//        }
+//        return -1;
+//    }
+
+    // binary search
+    // Time complexity: O(n log n)
+    // Space complexity: O(1)
     public int findDuplicate(int[] nums) {
-        // negative marking algorithm
-        // applicable only if nums values fit to the array indexes
-        // and all elements have the same sign.
-        for (int i = 0; i < nums.length; i++) {
-            int markPos = Math.abs(nums[i]);
-            if (nums[markPos] < 0) return Math.abs(nums[i]);
-            nums[markPos] *= -1;
+        int low = 1;
+        int high = nums.length - 1;
+        int count = 0;
+        int pivot = (high + low) / 2;
+        while (low != high) {
+            for (int num : nums) {
+                if (num <= pivot) count++;
+            }
+            if (count <= pivot) {
+                // look in the right part: pivot+1...high
+                low = pivot + 1;
+            } else {
+                // look in the left part: low...pivot
+                high = pivot;
+            }
+            pivot = (high + low) / 2;
+            count = 0;
         }
-        return -1;
+        return pivot;
     }
 
     public static void main(String[] args) {
-        System.out.println(new FindDuplicateNumber().findDuplicate(new int[]{1, 3, 4, 2, 2}));
+        System.out.println(new FindDuplicateNumber().findDuplicate(new int[]{3, 3, 3, 3, 3}));
     }
 }
