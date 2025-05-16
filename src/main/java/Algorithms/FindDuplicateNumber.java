@@ -46,6 +46,37 @@ public class FindDuplicateNumber {
 //        return -1;
 //    }
 
+    // Array as HashMap (recursive)
+    // Time complexity: O(n)
+    // Space complexity: O(n)
+//    public int findDuplicate(int[] nums) {
+//        return store(nums, 0);
+//    }
+//
+//    private int store(int[] nums, int pos) {
+//        int correspondingIndex = nums[pos];
+//        int numAtCorrespondingIndex = nums[correspondingIndex];
+//        if(correspondingIndex==numAtCorrespondingIndex) return correspondingIndex;
+//        nums[correspondingIndex] = correspondingIndex;
+//        return store(nums, numAtCorrespondingIndex);
+//    }
+
+    // Array as Hashmap (iterative)
+    // Time complexity: O(n)
+    // Space complexity: O(1)
+//    public int findDuplicate(int[] nums) {
+//        int pos = 1;
+//        do {
+//            if (nums[pos] == nums[0]) return nums[0];
+//            int buf = nums[nums[pos]];
+//            nums[nums[pos]] = nums[pos];
+//            nums[0] = buf;
+//            pos++;
+//        } while (pos < nums.length);
+//        return -1;
+//    }
+
+    //Array as HashMap
     // binary search
     // Time complexity: O(n log n)
     // Space complexity: O(1)
@@ -72,6 +103,6 @@ public class FindDuplicateNumber {
     }
 
     public static void main(String[] args) {
-        System.out.println(new FindDuplicateNumber().findDuplicate(new int[]{3, 3, 3, 3, 3}));
+        System.out.println(new FindDuplicateNumber().findDuplicate(new int[]{1, 2, 3, 4, 4}));
     }
 }
