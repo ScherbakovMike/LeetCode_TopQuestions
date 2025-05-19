@@ -3,7 +3,7 @@ package FastSlowPointers;
 import LinkedLists.*;
 
 /*
-234. Palindrome Linked List
+234. Palindrome Linked List (Slow-fast pointers & Reverse List)
 https://leetcode.com/problems/palindrome-linked-list/description/
 
 Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
@@ -22,7 +22,7 @@ The number of nodes in the list is in the range [1, 105].
 
 Follow up: Could you do it in O(n) time and O(1) space?
  */
-public class PalindromeLinkedList {
+public class PalindromeLinkedListReverseList {
 
     public static boolean palindrome(ListNode head) {
         // 0. Validations
