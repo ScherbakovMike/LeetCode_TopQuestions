@@ -23,12 +23,6 @@ public class LinkedListCycleIII {
       return 0;
     }
 
-    // reset fast to head;
-    fast = head;
-    while (slow != fast) {
-      slow = slow.next;
-      fast = fast.next;
-    }
     // slow = the start of the cycle
     int length = 1;
     ListNode entrance = slow;
