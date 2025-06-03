@@ -2,7 +2,8 @@ package Utilities;
 
 public class Perf {
 
-  private Perf() {}
+  private Perf() {
+  }
 
   public static void measure(Runnable task) {
     Runtime runtime = Runtime.getRuntime();
@@ -18,17 +19,17 @@ public class Perf {
 
     System.out.printf(
         "Time: %d ns, Memory: %d KB%n",
-        (endTime - startTime) / 1_000, (afterMem - beforeMem) / 1024);
+                (endTime - startTime) / 1_000, (afterMem - beforeMem) / 1024);
   }
 
   public static <T> T measure(java.util.concurrent.Callable<T> task) {
     Runtime runtime = Runtime.getRuntime();
-    runtime.gc();
+           runtime.gc();
 
     long beforeMem = runtime.totalMemory() - runtime.freeMemory();
     long startTime = System.nanoTime();
 
-    T result;
+          T result;
     try {
       result = task.call();
     } catch (Exception e) {
