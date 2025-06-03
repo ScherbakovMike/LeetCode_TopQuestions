@@ -27,7 +27,7 @@ public class MaxPointsOnALine {
   }
 
   public static void main(String[] args) {
-    var points = new int[][]{{1, 1}, {3, 2}, {5, 3}, {4, 1}, {2, 3}, {1, 4}};
+    var points = new int[][] {{1, 1}, {3, 2}, {5, 3}, {4, 1}, {2, 3}, {1, 4}};
     System.out.println(maxPoints(points));
   }
 }

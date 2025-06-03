@@ -11,14 +11,13 @@ public class ImplementStrStr {
       char curChar = haystack.charAt(curPos);
       if (curChar == firstSymbol) {
         shift = 0;
-        while (shift < needle.length()
-          && (curPos + shift) < haystack.length()) {
+        while (shift < needle.length() && (curPos + shift) < haystack.length()) {
           if (haystack.charAt(curPos + shift) != needle.charAt(shift)) {
             break;
           }
           shift++;
         }
-        if(shift==needle.length()) {
+        if (shift == needle.length()) {
           result = curPos;
         }
       }

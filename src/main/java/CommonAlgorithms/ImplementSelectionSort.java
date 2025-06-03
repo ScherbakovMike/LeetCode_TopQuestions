@@ -22,7 +22,7 @@ public class ImplementSelectionSort {
   }
 
   public static void main(String[] args) {
-    var array = new int[]{22, 1, 3, 99, 8};
+    var array = new int[] {22, 1, 3, 99, 8};
     selectionSort(array);
     for (var elem : array) {
       System.out.println(elem);

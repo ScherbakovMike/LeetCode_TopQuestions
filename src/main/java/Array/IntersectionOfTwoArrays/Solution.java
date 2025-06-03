@@ -4,8 +4,8 @@ import java.util.stream.IntStream;
 
 public class Solution {
   public static void main(String[] args) {
-    var test1 = new int[]{3, 1, 2};
-    var test2 = new int[]{1, 1};
+    var test1 = new int[] {3, 1, 2};
+    var test2 = new int[] {1, 1};
     var result = new Solution().intersect(test1, test2);
     for (var elem : result) {
       System.out.print(elem + " ");
@@ -24,8 +24,7 @@ public class Solution {
     }
     for (int i = 0; i < minMas.length; i++) {
       int pos = 0;
-      while (pos < maxMas.length
-          && maxMas[pos] != minMas[i]) {
+      while (pos < maxMas.length && maxMas[pos] != minMas[i]) {
         pos++;
       }
       if (pos == maxMas.length) {

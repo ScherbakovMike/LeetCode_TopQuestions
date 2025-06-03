@@ -27,9 +27,9 @@ public class LongestCommonPrefix {
   }
 
   public static void main(String[] args) {
-    //var strs = new String[]{"cir", "car"};
-    var strs = new String[]{"flower", "flow", "flight"};
-    //var strs = new String[]{"aba", "c", "b", "a", "ab"};
+    // var strs = new String[]{"cir", "car"};
+    var strs = new String[] {"flower", "flow", "flight"};
+    // var strs = new String[]{"aba", "c", "b", "a", "ab"};
     System.out.println(new LongestCommonPrefix().longestCommonPrefix(strs));
   }
 }

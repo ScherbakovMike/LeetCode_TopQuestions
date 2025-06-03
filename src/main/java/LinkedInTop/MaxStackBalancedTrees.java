@@ -17,14 +17,14 @@ public class MaxStackBalancedTrees {
   }
 
   public void push(int x) {
-    stack.add(new int[]{counter, x});
-    values.add(new int[]{x, counter});
+    stack.add(new int[] {counter, x});
+    values.add(new int[] {x, counter});
     counter++;
   }
 
   public int pop() {
     var last = stack.pollLast();
-    values.remove(new int[]{last[1], last[0]});
+    values.remove(new int[] {last[1], last[0]});
     return last[1];
   }
 
@@ -38,7 +38,7 @@ public class MaxStackBalancedTrees {
 
   public int popMax() {
     var last = values.pollLast();
-    stack.remove(new int[]{last[1], last[0]});
+    stack.remove(new int[] {last[1], last[0]});
     return last[0];
   }
 

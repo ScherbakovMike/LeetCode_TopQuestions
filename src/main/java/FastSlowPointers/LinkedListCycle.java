@@ -45,28 +45,27 @@ pos is -1 or a valid index in the linked-list.
  */
 public class LinkedListCycle {
 
-    public boolean hasCycle(ListNode head) {
-        if (head == null)
-            return false;
-        ListNode slow = head;
-        ListNode fast = head.next;
-        while (fast != null && fast != slow) {
-            slow = slow.next;
-            fast = fast.next;
-            if (fast == null) {
-                return false;
-            }
-            fast = fast.next;
-        }
-        return fast == slow;
+  public boolean hasCycle(ListNode head) {
+    if (head == null) return false;
+    ListNode slow = head;
+    ListNode fast = head.next;
+    while (fast != null && fast != slow) {
+      slow = slow.next;
+      fast = fast.next;
+      if (fast == null) {
+        return false;
+      }
+      fast = fast.next;
     }
+    return fast == slow;
+  }
 
-    public static void main(String[] args) {
-        System.out.println(new LinkedListCycle().hasCycle(null) == false);
-        System.out.println(new LinkedListCycle().hasCycle(new ListNode(1)) == false);
+  public static void main(String[] args) {
+    System.out.println(new LinkedListCycle().hasCycle(null) == false);
+    System.out.println(new LinkedListCycle().hasCycle(new ListNode(1)) == false);
 
-        var listWithCycle = new ListNode(1);
-        listWithCycle.next = listWithCycle;
-        System.out.println(new LinkedListCycle().hasCycle(listWithCycle) == true);
-    }
+    var listWithCycle = new ListNode(1);
+    listWithCycle.next = listWithCycle;
+    System.out.println(new LinkedListCycle().hasCycle(listWithCycle) == true);
+  }
 }

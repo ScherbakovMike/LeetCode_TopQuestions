@@ -31,7 +31,7 @@ public class FindLeavesOfBinaryTree {
   }
 
   public static void main(String[] args) {
-    var root = TreeNode.of(new Integer[]{1, 2});
+    var root = TreeNode.of(new Integer[] {1, 2});
     System.out.println(new FindLeavesOfBinaryTree().findLeaves(root));
   }
 }

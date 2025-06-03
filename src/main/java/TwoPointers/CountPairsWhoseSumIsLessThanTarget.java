@@ -44,42 +44,42 @@ Constraints:
  */
 public class CountPairsWhoseSumIsLessThanTarget {
 
-    public int countPairs(List<Integer> nums, int target) {
-        Collections.sort(nums);
-        int low = 0;
-        int high = nums.size()-1;
-        int count = 0;
-        while(low<high) {
-            int sum = nums.get(low)+nums.get(high);
-            if(sum>=target) {
-                high--;
-            } else {
-                count += (high-low);
-                low++;
-            }
-        }
-        return count;
+  public int countPairs(List<Integer> nums, int target) {
+    Collections.sort(nums);
+    int low = 0;
+    int high = nums.size() - 1;
+    int count = 0;
+    while (low < high) {
+      int sum = nums.get(low) + nums.get(high);
+      if (sum >= target) {
+        high--;
+      } else {
+        count += (high - low);
+        low++;
+      }
     }
+    return count;
+  }
 
-    public static void main(String[] args) {
-        List<List<Integer>> testCases = Arrays.asList(
-                Arrays.asList(10, 1, 6, 2, 3, 8),
-                Arrays.asList(1, 3, 5, 7),
-                Arrays.asList(1, 2, 3, 6),
-                Arrays.asList(2, 4, 6, 8, 10),
-                Arrays.asList(5, 1, 9, 2)
-        );
-        List<Integer> targets = Arrays.asList(9, 8, 6, 12, 10);
+  public static void main(String[] args) {
+    List<List<Integer>> testCases =
+        Arrays.asList(
+            Arrays.asList(10, 1, 6, 2, 3, 8),
+            Arrays.asList(1, 3, 5, 7),
+            Arrays.asList(1, 2, 3, 6),
+            Arrays.asList(2, 4, 6, 8, 10),
+            Arrays.asList(5, 1, 9, 2));
+    List<Integer> targets = Arrays.asList(9, 8, 6, 12, 10);
 
-        for (int i = 0; i < testCases.size(); i++) {
-            List<Integer> nums = testCases.get(i);
-            int target = targets.get(i);
-            System.out.println((i + 1) + "\tnums: " + nums);
-            System.out.println("\ttarget: " + target);
+    for (int i = 0; i < testCases.size(); i++) {
+      List<Integer> nums = testCases.get(i);
+      int target = targets.get(i);
+      System.out.println((i + 1) + "\tnums: " + nums);
+      System.out.println("\ttarget: " + target);
 
-            int result = new CountPairsWhoseSumIsLessThanTarget().countPairs(nums, target);
-            System.out.println("\n\tNumber of valid pairs: " + result);
-            System.out.println(new String(new char[100]).replace('\0', '-'));
-        }
+      int result = new CountPairsWhoseSumIsLessThanTarget().countPairs(nums, target);
+      System.out.println("\n\tNumber of valid pairs: " + result);
+      System.out.println(new String(new char[100]).replace('\0', '-'));
     }
+  }
 }

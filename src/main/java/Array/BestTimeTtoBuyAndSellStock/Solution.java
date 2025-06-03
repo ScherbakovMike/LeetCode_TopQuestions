@@ -17,7 +17,7 @@ class Solution {
   }
 
   public static void main(String[] args) {
-    var test = new int[]{10, 3, 5, 10, 0, 200, 1};
+    var test = new int[] {10, 3, 5, 10, 0, 200, 1};
     System.out.println(new Solution().maxProfit(test));
   }
 }

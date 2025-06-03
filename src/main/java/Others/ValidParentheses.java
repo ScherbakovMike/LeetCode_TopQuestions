@@ -13,14 +13,14 @@ public class ValidParentheses {
   public boolean isValid(String s) {
     var openQueue = new ArrayDeque<Character>();
     var closeQueue = new ArrayDeque<Character>();
-    var parentheses = Map.of(
-        '(', openQueue,
-        '[', openQueue,
-        '{', openQueue,
-        ')', closeQueue,
-        ']', closeQueue,
-        '}', closeQueue
-    );
+    var parentheses =
+        Map.of(
+            '(', openQueue,
+            '[', openQueue,
+            '{', openQueue,
+            ')', closeQueue,
+            ']', closeQueue,
+            '}', closeQueue);
     for (int i = 0; i < s.length(); i++) {
       char ch1 = s.charAt(i);
       var firstQueue = parentheses.get(ch1);
@@ -31,9 +31,8 @@ public class ValidParentheses {
           return false;
         }
         char ch2 = openQueue.pop();
-        var pair = (ch2 == '(' && ch1 == ')')
-            || (ch2 == '{' && ch1 == '}')
-            || (ch2 == '[' && ch1 == ']');
+        var pair =
+            (ch2 == '(' && ch1 == ')') || (ch2 == '{' && ch1 == '}') || (ch2 == '[' && ch1 == ']');
         if (!pair) {
           return false;
         }
@@ -41,5 +40,4 @@ public class ValidParentheses {
     }
     return openQueue.isEmpty() && closeQueue.isEmpty();
   }
-
 }

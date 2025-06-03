@@ -1,9 +1,8 @@
 package SlidingWindow;
 
 import Utilities.*;
-import org.junit.jupiter.api.*;
-
 import java.util.*;
+import org.junit.jupiter.api.*;
 
 /*
 https://leetcode.com/problems/longest-substring-without-repeating-characters/
@@ -39,34 +38,34 @@ s consists of English letters, digits, symbols and spaces.
  */
 public class LongestSubstringWithoutRepeatingCharacters {
 
-    public int lengthOfLongestSubstring(String s) {
-        return Perf.measure(() -> {
-            int left = 0;
-            int right = 0;
-            int curLength = 0;
-            int maxLength = 0;
-            Map<Character, Integer> charMap = new HashMap<>();
-            while (right != s.length()) {
-                Character curChar = s.charAt(right);
-                if (charMap.get(curChar) == null || charMap.get(curChar) < left) {
-                    curLength++;
-                    if (curLength > maxLength) maxLength = curLength;
-                    charMap.put(curChar, right);
-                } else {
-                    left = charMap.get(curChar) + 1;
-                    curLength = right - left + 1;
-                    charMap.put(curChar, right);
-                }
-                right++;
+  public int lengthOfLongestSubstring(String s) {
+    return Perf.measure(
+        () -> {
+          int left = 0;
+          int right = 0;
+          int curLength = 0;
+          int maxLength = 0;
+          Map<Character, Integer> charMap = new HashMap<>();
+          while (right != s.length()) {
+            Character curChar = s.charAt(right);
+            if (charMap.get(curChar) == null || charMap.get(curChar) < left) {
+              curLength++;
+              if (curLength > maxLength) maxLength = curLength;
+              charMap.put(curChar, right);
+            } else {
+              left = charMap.get(curChar) + 1;
+              curLength = right - left + 1;
+              charMap.put(curChar, right);
             }
-            return maxLength;
+            right++;
+          }
+          return maxLength;
         });
-    }
+  }
 
-    @Test
-    public void test() {
-        Assertions.assertEquals(
-                3,
-                new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstring("abcabcbb"));
-    }
+  @Test
+  public void test() {
+    Assertions.assertEquals(
+        3, new LongestSubstringWithoutRepeatingCharacters().lengthOfLongestSubstring("abcabcbb"));
+  }
 }

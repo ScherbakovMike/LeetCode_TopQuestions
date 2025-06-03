@@ -16,7 +16,7 @@ public class FindKPairsWithSmallestSums {
     Set<List<Integer>> visited = new HashSet<>();
 
     PriorityQueue<int[]> minHeap = new PriorityQueue<>((a, b) -> (a[0] - b[0]));
-    minHeap.offer(new int[]{nums1[0] + nums2[0], 0, 0});
+    minHeap.offer(new int[] {nums1[0] + nums2[0], 0, 0});
     visited.add(List.of(0, 0));
 
     while (k-- > 0 && !minHeap.isEmpty()) {
@@ -27,12 +27,12 @@ public class FindKPairsWithSmallestSums {
       ans.add(List.of(nums1[i], nums2[j]));
 
       if (i + 1 < m && !visited.contains(List.of(i + 1, j))) {
-        minHeap.offer(new int[]{nums1[i + 1] + nums2[j], i + 1, j});
+        minHeap.offer(new int[] {nums1[i + 1] + nums2[j], i + 1, j});
         visited.add(List.of(i + 1, j));
       }
 
       if (j + 1 < n && !visited.contains(List.of(i, j + 1))) {
-        minHeap.offer(new int[]{nums1[i] + nums2[j + 1], i, j + 1});
+        minHeap.offer(new int[] {nums1[i] + nums2[j + 1], i, j + 1});
         visited.add(List.of(i, j + 1));
       }
     }
@@ -40,20 +40,24 @@ public class FindKPairsWithSmallestSums {
   }
 
   public static void main(String[] args) {
-//    var num1 = new int[]{1, 7, 11};
-//    var num2 = new int[]{2, 4, 6};
-//    System.out.println(new FindKPairsWithSmallestSumsPriorityQueue().kSmallestPairs(num1, num2, 3));
-//    var num1 = new int[]{1, 1, 2};
-//    var num2 = new int[]{1, 2, 3};
-//    System.out.println(new FindKPairsWithSmallestSumsPriorityQueue().kSmallestPairs(num1, num2, 2));
-//    var num1 = new int[]{1, 2};
-//    var num2 = new int[]{3};
-//    System.out.println(new FindKPairsWithSmallestSumsPriorityQueue().kSmallestPairs(num1, num2, 3));
-//    var num1 = new int[]{1, 1, 2};
-//    var num2 = new int[]{1, 2, 3};
-//    System.out.println(new FindKPairsWithSmallestSumsPriorityQueue().kSmallestPairs(num1, num2, 10));
-    var num1 = new int[]{1, 1, 2};
-    var num2 = new int[]{10, 20, 30};
+    //    var num1 = new int[]{1, 7, 11};
+    //    var num2 = new int[]{2, 4, 6};
+    //    System.out.println(new FindKPairsWithSmallestSumsPriorityQueue().kSmallestPairs(num1,
+    // num2, 3));
+    //    var num1 = new int[]{1, 1, 2};
+    //    var num2 = new int[]{1, 2, 3};
+    //    System.out.println(new FindKPairsWithSmallestSumsPriorityQueue().kSmallestPairs(num1,
+    // num2, 2));
+    //    var num1 = new int[]{1, 2};
+    //    var num2 = new int[]{3};
+    //    System.out.println(new FindKPairsWithSmallestSumsPriorityQueue().kSmallestPairs(num1,
+    // num2, 3));
+    //    var num1 = new int[]{1, 1, 2};
+    //    var num2 = new int[]{1, 2, 3};
+    //    System.out.println(new FindKPairsWithSmallestSumsPriorityQueue().kSmallestPairs(num1,
+    // num2, 10));
+    var num1 = new int[] {1, 1, 2};
+    var num2 = new int[] {10, 20, 30};
     System.out.println(new FindKPairsWithSmallestSums().kSmallestPairs(num1, num2, 10));
   }
 }

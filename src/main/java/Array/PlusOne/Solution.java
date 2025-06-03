@@ -27,7 +27,7 @@ public class Solution {
   }
 
   public static void main(String[] args) {
-    var result = new Solution().plusOne(new int[]{9, 9, 9});
+    var result = new Solution().plusOne(new int[] {9, 9, 9});
     for (var elem : result) {
       System.out.print(elem + " ");
     }

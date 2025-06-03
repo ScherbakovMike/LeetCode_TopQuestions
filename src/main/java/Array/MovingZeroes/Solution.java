@@ -32,7 +32,7 @@ class Solution {
   }
 
   public static void main(String[] args) {
-    var test = new int[]{1, 1, 1, 1, 1};
+    var test = new int[] {1, 1, 1, 1, 1};
     new Solution().moveZeroes(test);
     for (var i : test) {
       System.out.print(i + " ");

@@ -5,7 +5,6 @@ import java.util.LinkedList;
 
 public class InsertInterval {
 
-
   public int[][] insert(int[][] intervals, int[] newInterval) {
     var result = new LinkedList<int[]>();
     var inserted = false;
@@ -31,7 +30,9 @@ public class InsertInterval {
         inserted = true;
         continue;
       }
-      if (!inserted && !result.isEmpty() && newInterval[0] <= interval[0]
+      if (!inserted
+          && !result.isEmpty()
+          && newInterval[0] <= interval[0]
           && newInterval[1] >= interval[0]) {
         interval[0] = Math.min(newInterval[0], interval[0]);
         interval[1] = Math.max(interval[1], newInterval[1]);
@@ -54,15 +55,17 @@ public class InsertInterval {
   }
 
   public static void main(String[] args) {
-    var intervals = new int[][]{{3, 5}, {12, 15}};
-    var newInterval = new int[]{5, 17};
+    var intervals = new int[][] {{3, 5}, {12, 15}};
+    var newInterval = new int[] {5, 17};
     System.out.println(Arrays.deepToString(new InsertInterval().insert(intervals, newInterval)));
-//
-//    intervals = new int[][]{{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}};
-//    newInterval = new int[]{4, 8};
-//    System.out.println(Arrays.deepToString(new InsertInterval().insert(intervals, newInterval)));
-//    var intervals = new int[][]{};
-//    var newInterval = new int[]{2, 5};
-//    System.out.println(Arrays.deepToString(new InsertInterval().insert(intervals, newInterval)));
+    //
+    //    intervals = new int[][]{{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}};
+    //    newInterval = new int[]{4, 8};
+    //    System.out.println(Arrays.deepToString(new InsertInterval().insert(intervals,
+    // newInterval)));
+    //    var intervals = new int[][]{};
+    //    var newInterval = new int[]{2, 5};
+    //    System.out.println(Arrays.deepToString(new InsertInterval().insert(intervals,
+    // newInterval)));
   }
 }

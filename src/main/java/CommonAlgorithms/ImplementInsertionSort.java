@@ -19,7 +19,7 @@ public class ImplementInsertionSort {
   }
 
   public static void main(String[] args) {
-    var numbers = new int[]{10, 9, 1, 2, 3, 4, 5, 6, 1};
+    var numbers = new int[] {10, 9, 1, 2, 3, 4, 5, 6, 1};
     System.out.println(Arrays.toString(numbers));
     insertionSort(numbers);
     System.out.println(Arrays.toString(numbers));

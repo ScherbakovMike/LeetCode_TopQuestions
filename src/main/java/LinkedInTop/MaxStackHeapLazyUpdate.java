@@ -21,14 +21,14 @@ public class MaxStackHeapLazyUpdate {
   }
 
   public void push(int x) {
-    stack.add(new int[]{x, counter});
-    values.add(new int[]{x, counter});
+    stack.add(new int[] {x, counter});
+    values.add(new int[] {x, counter});
     counter++;
   }
 
   public int pop() {
     var last = stack.pollLast();
-    while(removed.contains(last[1])) {
+    while (removed.contains(last[1])) {
       last = stack.pollLast();
     }
     removed.add(last[1]);
@@ -37,7 +37,7 @@ public class MaxStackHeapLazyUpdate {
 
   public int top() {
     var last = stack.peekLast();
-    while(removed.contains(last[1])) {
+    while (removed.contains(last[1])) {
       stack.pollLast();
       last = stack.peekLast();
     }
@@ -46,7 +46,7 @@ public class MaxStackHeapLazyUpdate {
 
   public int peekMax() {
     var last = values.first();
-    while(removed.contains(last[1])) {
+    while (removed.contains(last[1])) {
       values.pollFirst();
       last = values.first();
     }
@@ -55,7 +55,7 @@ public class MaxStackHeapLazyUpdate {
 
   public int popMax() {
     var last = values.pollFirst();
-    while(removed.contains(last[1])) {
+    while (removed.contains(last[1])) {
       last = values.pollFirst();
     }
     removed.add(last[1]);
@@ -64,20 +64,19 @@ public class MaxStackHeapLazyUpdate {
 
   public static void main(String[] args) {
     var stack = new MaxStackHeapLazyUpdate();
-//    stack.push(5);
-//    stack.push(1);
-//    stack.push(5);
-//    System.out.println(stack.top());
-//    System.out.println(stack.popMax());
-//    System.out.println(stack.top());
-//    System.out.println(stack.peekMax());
-//    System.out.println(stack.pop());
-//    System.out.println(stack.top());
+    //    stack.push(5);
+    //    stack.push(1);
+    //    stack.push(5);
+    //    System.out.println(stack.top());
+    //    System.out.println(stack.popMax());
+    //    System.out.println(stack.top());
+    //    System.out.println(stack.peekMax());
+    //    System.out.println(stack.pop());
+    //    System.out.println(stack.top());
 
     stack.push(5);
     stack.push(1);
 
     System.out.println(stack.top());
-
   }
 }

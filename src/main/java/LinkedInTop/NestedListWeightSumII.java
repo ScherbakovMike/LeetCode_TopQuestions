@@ -3,10 +3,9 @@ package LinkedInTop;
 import java.util.Arrays;
 import java.util.List;
 
-
 public class NestedListWeightSumII {
   public int depthSumInverse(List<NestedInteger> nestedList) {
-    var results = new int[]{1, 1, 0, 0}; //depth, maxDepth, sumN, sumN*Dn
+    var results = new int[] {1, 1, 0, 0}; // depth, maxDepth, sumN, sumN*Dn
     results = depthSumR(nestedList, results);
     return (results[1] + 1) * results[2] - results[3];
   }
@@ -35,7 +34,7 @@ public class NestedListWeightSumII {
   }
 
   public static void main(String[] args) {
-    //[[2|1,1],1|2,[2|1,1],[2|[3|[4|[5|]]]]]
+    // [[2|1,1],1|2,[2|1,1],[2|[3|[4|[5|]]]]]
     var list = new NestedInteger();
     list.add(NestedInteger.fromIntegers(1, 1));
     list.add(new NestedInteger(2));

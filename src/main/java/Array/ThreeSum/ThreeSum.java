@@ -42,32 +42,32 @@ Constraints:
  */
 public class ThreeSum {
 
-    public static void main(String[] args) {
-        var nums = new int[]{-1,0,1,2,-1,-4};
-        Arrays.sort(nums);
-        System.out.println(threeSum(nums));
-    }
+  public static void main(String[] args) {
+    var nums = new int[] {-1, 0, 1, 2, -1, -4};
+    Arrays.sort(nums);
+    System.out.println(threeSum(nums));
+  }
 
-    private static List<List<Integer>> threeSum(int[] nums) {
-        var result = new ArrayList<List<Integer>>();
-        Arrays.sort(nums);
-        for(int i=0;i<nums.length-2;i++){
-            if(nums[i]>0) {
-                return result;
-            }
-            if(i>0 && nums[i]==nums[i-1]) {
-                continue;
-            }
-            var left = i+1;
-            var right = nums.length-1;
-            while(left<right && ((nums[i]+nums[left]) <=nums[right])){
-                if(nums[i]+nums[left]+nums[right]==0){
-                    result.add(Arrays.asList(nums[i],nums[left],nums[right]));
-                }
-                left++;
-                right--;
-            }
-        }
+  private static List<List<Integer>> threeSum(int[] nums) {
+    var result = new ArrayList<List<Integer>>();
+    Arrays.sort(nums);
+    for (int i = 0; i < nums.length - 2; i++) {
+      if (nums[i] > 0) {
         return result;
+      }
+      if (i > 0 && nums[i] == nums[i - 1]) {
+        continue;
+      }
+      var left = i + 1;
+      var right = nums.length - 1;
+      while (left < right && ((nums[i] + nums[left]) <= nums[right])) {
+        if (nums[i] + nums[left] + nums[right] == 0) {
+          result.add(Arrays.asList(nums[i], nums[left], nums[right]));
+        }
+        left++;
+        right--;
+      }
     }
+    return result;
+  }
 }

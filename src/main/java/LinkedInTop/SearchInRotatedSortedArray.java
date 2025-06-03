@@ -31,24 +31,24 @@ public class SearchInRotatedSortedArray {
 
       if (nums[start] <= nums[delimiter]) {
         // left is sorted
-        if(target >= nums[start] && target <= nums[delimiter]) {
+        if (target >= nums[start] && target <= nums[delimiter]) {
           return searchR(nums, start, delimiter, true, target);
         } else {
           return searchR(nums, delimiter + 1, end, false, target);
         }
       } else {
         // right is sorted
-        if(target >= nums[delimiter+1] && target <= nums[end]) {
-          return searchR(nums, delimiter+1, end, true, target);
+        if (target >= nums[delimiter + 1] && target <= nums[end]) {
+          return searchR(nums, delimiter + 1, end, true, target);
         } else {
-          return searchR(nums, start , delimiter, false, target);
+          return searchR(nums, start, delimiter, false, target);
         }
       }
     }
   }
 
   public static void main(String[] args) {
-    var nums = new int[]{5, 1, 3};
+    var nums = new int[] {5, 1, 3};
     System.out.println(search(nums, 4));
   }
 }

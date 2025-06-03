@@ -1,14 +1,9 @@
 package LinkedLists.PalindromeLinkedList;
 
 /**
- * Definition for singly-linked list.
- * public class ListNode {
- * int val;
- * ListNode next;
- * ListNode() {}
- * ListNode(int val) { this.val = val; }
- * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
- * }
+ * Definition for singly-linked list. public class ListNode { int val; ListNode next; ListNode() {}
+ * ListNode(int val) { this.val = val; } ListNode(int val, ListNode next) { this.val = val;
+ * this.next = next; } }
  */
 class Solution {
   public boolean isPalindrome(ListNode head) {
@@ -48,7 +43,7 @@ class Solution {
   }
 
   public static void main(String[] args) {
-    var array = new int[]{1, 9, 4, 4, 9, 1};
+    var array = new int[] {1, 9, 4, 4, 9, 1};
     ListNode head = null;
     ListNode lastNode = null;
     for (int i = 0; i < array.length; i++) {
@@ -69,8 +64,7 @@ class ListNode {
   int val;
   ListNode next;
 
-  ListNode() {
-  }
+  ListNode() {}
 
   ListNode(int val) {
     this.val = val;

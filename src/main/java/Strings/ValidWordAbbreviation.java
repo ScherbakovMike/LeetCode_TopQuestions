@@ -12,48 +12,48 @@ A certain word "calendar" can be abbreviated as follows:
  */
 public class ValidWordAbbreviation {
 
-    public static boolean validWordAbbreviation(String word, String abbr) {
-        int posWord = 0;
-        int posAbbr = 0;
-        StringBuilder skip = new StringBuilder();
-        while (posAbbr < abbr.length()) {
-            if (charIsDigit(abbr.charAt(posAbbr))) {
-                if (skip.length()==0 && abbr.charAt(posAbbr) == '0') {
-                    return false;
-                }
-                skip.append(abbr.charAt(posAbbr));
-                posAbbr++;
-                continue;
-            }
-            if (skip.length()!=0 && !charIsDigit(abbr.charAt(posAbbr))) {
-                posWord += Integer.parseInt(skip.toString());
-                if (posWord > word.length()) return false;
-                skip.setLength(0);
-                continue;
-            }
-            if (skip.length()==0 && !charIsDigit(abbr.charAt(posAbbr))) {
-                if (abbr.charAt(posAbbr) != word.charAt(posWord)) return false;
-                posAbbr++;
-                posWord++;
-            }
+  public static boolean validWordAbbreviation(String word, String abbr) {
+    int posWord = 0;
+    int posAbbr = 0;
+    StringBuilder skip = new StringBuilder();
+    while (posAbbr < abbr.length()) {
+      if (charIsDigit(abbr.charAt(posAbbr))) {
+        if (skip.length() == 0 && abbr.charAt(posAbbr) == '0') {
+          return false;
         }
-        if (skip.length() != 0) {
-            posWord += Integer.parseInt(skip.toString());
-        }
-        return posWord == word.length();
+        skip.append(abbr.charAt(posAbbr));
+        posAbbr++;
+        continue;
+      }
+      if (skip.length() != 0 && !charIsDigit(abbr.charAt(posAbbr))) {
+        posWord += Integer.parseInt(skip.toString());
+        if (posWord > word.length()) return false;
+        skip.setLength(0);
+        continue;
+      }
+      if (skip.length() == 0 && !charIsDigit(abbr.charAt(posAbbr))) {
+        if (abbr.charAt(posAbbr) != word.charAt(posWord)) return false;
+        posAbbr++;
+        posWord++;
+      }
     }
-
-    private static boolean charIsDigit(char ch) {
-        return ch >= '0' && ch <= '9';
+    if (skip.length() != 0) {
+      posWord += Integer.parseInt(skip.toString());
     }
+    return posWord == word.length();
+  }
 
-    public static void main(String[] args) {
-//        System.out.println(validWordAbbreviation("calendar", "cal3ar"));
-//        System.out.println(validWordAbbreviation("calendar", "c6r"));
-//        System.out.println(validWordAbbreviation("calendar", "8"));
-//        System.out.println(validWordAbbreviation("calendar", "cale0ndar"));
-//        System.out.println(validWordAbbreviation("calendar", "c24r"));
+  private static boolean charIsDigit(char ch) {
+    return ch >= '0' && ch <= '9';
+  }
 
-        System.out.println(validWordAbbreviation("kkusiyrkmr", "10"));
-    }
+  public static void main(String[] args) {
+    //        System.out.println(validWordAbbreviation("calendar", "cal3ar"));
+    //        System.out.println(validWordAbbreviation("calendar", "c6r"));
+    //        System.out.println(validWordAbbreviation("calendar", "8"));
+    //        System.out.println(validWordAbbreviation("calendar", "cale0ndar"));
+    //        System.out.println(validWordAbbreviation("calendar", "c24r"));
+
+    System.out.println(validWordAbbreviation("kkusiyrkmr", "10"));
+  }
 }

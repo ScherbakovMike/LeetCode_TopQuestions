@@ -29,18 +29,16 @@ public class Solution {
     head.next.next.next = new ListNode(3);
     head.next.next.next.next = head.next;
 
-    //head.next.next.next.next = head.next;
+    // head.next.next.next.next = head.next;
     System.out.println(new Solution().hasCycle(head));
   }
-
 }
 
 class ListNode {
   int val;
   ListNode next;
 
-  ListNode() {
-  }
+  ListNode() {}
 
   ListNode(int val) {
     this.val = val;

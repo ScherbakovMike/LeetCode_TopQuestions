@@ -29,30 +29,30 @@ Constraints:
 s consists of lowercase English letters.
  */
 public class ValidPalindromeII {
-    public boolean validPalindrome(String string) {
-        int low = 0;
-        int high = string.length()-1;
-        while(low<high && string.charAt(low)==string.charAt(high)) {
-            low++;
-            high--;
-        }
-        return low==high
-                || isAStrictPalindrome(string, low+1, high)
-                || isAStrictPalindrome(string, low, high-1);
+  public boolean validPalindrome(String string) {
+    int low = 0;
+    int high = string.length() - 1;
+    while (low < high && string.charAt(low) == string.charAt(high)) {
+      low++;
+      high--;
     }
+    return low == high
+        || isAStrictPalindrome(string, low + 1, high)
+        || isAStrictPalindrome(string, low, high - 1);
+  }
 
-    private boolean isAStrictPalindrome(String string, int low, int high) {
-            while(low<high) {
-                if(string.charAt(low)!=string.charAt(high)) {
-                    return false;
-                }
-                low++;
-                high--;
-            }
-        return true;
+  private boolean isAStrictPalindrome(String string, int low, int high) {
+    while (low < high) {
+      if (string.charAt(low) != string.charAt(high)) {
+        return false;
+      }
+      low++;
+      high--;
     }
+    return true;
+  }
 
-    public static void main(String[] args) {
-        System.out.println(new ValidPalindromeII().validPalindrome("abca"));
-    }
+  public static void main(String[] args) {
+    System.out.println(new ValidPalindromeII().validPalindrome("abca"));
+  }
 }

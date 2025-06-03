@@ -4,8 +4,7 @@ class ListNode {
   int val;
   ListNode next;
 
-  ListNode() {
-  }
+  ListNode() {}
 
   ListNode(int val) {
     this.val = val;
@@ -74,8 +73,8 @@ public class Solution {
     list2.next = new ListNode(3);
     list2.next.next = new ListNode(4);
 
-//    ListNode list1 = null;
-//    var list2 = new ListNode(0);
+    //    ListNode list1 = null;
+    //    var list2 = new ListNode(0);
 
     printList(new Solution().mergeTwoLists(list1, list2));
   }

@@ -17,7 +17,7 @@ public class ImplementHashTable {
     public void set(String key, T value) {
       var bucket = bucket(key);
       if (this.data[bucket] == null) {
-        this.data[bucket(key)] = new Object[]{key, value, null};
+        this.data[bucket(key)] = new Object[] {key, value, null};
       } else {
         var currentNode = ((Object[]) this.data[bucket(key)]);
         var currentKey = (String) ((Object[]) this.data[bucket(key)])[0];
@@ -32,7 +32,7 @@ public class ImplementHashTable {
         if (currentNode != null) {
           currentNode[1] = value;
         } else {
-          prevNode[2] = new Object[]{key, value, null};
+          prevNode[2] = new Object[] {key, value, null};
         }
       }
     }

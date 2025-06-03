@@ -3,7 +3,7 @@ package CommonAlgorithms;
 public class ImplementBinarySearch {
 
   public static void main(String[] args) {
-    var sortedArray = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 19};
+    var sortedArray = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 19};
     var searchItem = 4;
     System.out.println(binarySearch(sortedArray, searchItem));
   }

@@ -40,13 +40,15 @@ class AllOne {
 
   public AllOne() {
     this.keys = new HashMap<>();
-    this.statistic = new TreeSet<>((o1, o2) -> {
-      if (o1.count == o2.count) {
-        return o1.key.compareTo(o2.key);
-      } else {
-        return o1.count - o2.count;
-      }
-    });
+    this.statistic =
+        new TreeSet<>(
+            (o1, o2) -> {
+              if (o1.count == o2.count) {
+                return o1.key.compareTo(o2.key);
+              } else {
+                return o1.count - o2.count;
+              }
+            });
   }
 
   public void inc(String key) {
@@ -95,8 +97,8 @@ class AllOne {
   public static void main(String[] args) {
     var stack = new AllOne();
 
-    //["AllOne","inc","inc","inc","inc","inc","dec","dec","getMaxKey","getMinKey"]
-    //[[],["a"],["b"],["b"],["b"],["b"],["b"],["b"],[],[]]
+    // ["AllOne","inc","inc","inc","inc","inc","dec","dec","getMaxKey","getMinKey"]
+    // [[],["a"],["b"],["b"],["b"],["b"],["b"],["b"],[],[]]
 
     stack.inc("a");
     stack.inc("b");

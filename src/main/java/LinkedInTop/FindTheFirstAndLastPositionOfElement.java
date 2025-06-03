@@ -5,17 +5,16 @@ import java.util.Arrays;
 public class FindTheFirstAndLastPositionOfElement {
   public static int[] searchRange(int[] nums, int target) {
     if (nums.length < 1) {
-      return new int[]{-1, -1};
+      return new int[] {-1, -1};
     }
     if (nums[0] == target && nums[nums.length - 1] == target) {
-      return new int[]{0, nums.length - 1};
+      return new int[] {0, nums.length - 1};
     }
     return searchRangeR(nums, target, 0, nums.length - 1, -1, -1);
   }
 
-  private static int[] searchRangeR(int[] nums, int target,
-                                    int begin, int end,
-                                    int leftPosition, int rightPosition) {
+  private static int[] searchRangeR(
+      int[] nums, int target, int begin, int end, int leftPosition, int rightPosition) {
     if ((end - begin) < 2) {
       if (nums[begin] == target) {
         leftPosition = begin;
@@ -30,7 +29,7 @@ public class FindTheFirstAndLastPositionOfElement {
       if (rightPosition == -1 && leftPosition != -1) {
         rightPosition = leftPosition;
       }
-      return new int[]{leftPosition, rightPosition};
+      return new int[] {leftPosition, rightPosition};
     }
     int pivot = (end + begin) / 2;
     if (nums[pivot] < target) { // left part is pointless
@@ -72,13 +71,13 @@ public class FindTheFirstAndLastPositionOfElement {
     if (rightPosition == -1 && leftPosition != -1) {
       rightPosition = leftPosition;
     }
-    return new int[]{leftPosition, rightPosition};
+    return new int[] {leftPosition, rightPosition};
   }
 
   public static void main(String[] args) {
-    //var nums = new int[]{1,3};
-    var nums = new int[]{0,1,2,3,4,4,4};
-    //var nums = new int[]{};
+    // var nums = new int[]{1,3};
+    var nums = new int[] {0, 1, 2, 3, 4, 4, 4};
+    // var nums = new int[]{};
     System.out.println(Arrays.toString(searchRange(nums, 2)));
   }
 }

@@ -9,13 +9,13 @@ class Solution {
     return Arrays.stream(nums)
         .boxed()
         .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
-        .entrySet().stream()
+        .entrySet()
+        .stream()
         .anyMatch(entry -> entry.getValue() > 1);
   }
 
   public static void main(String[] args) {
-    var test = new int[]{1, 2, 3, 4};
+    var test = new int[] {1, 2, 3, 4};
     System.out.println(new Solution().containsDuplicate(test));
   }
-
 }

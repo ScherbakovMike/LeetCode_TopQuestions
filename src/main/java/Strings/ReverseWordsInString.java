@@ -39,26 +39,26 @@ Follow-up: If the string data type is mutable in your language, can you solve it
  */
 public class ReverseWordsInString {
 
-    public static String reverseWords(String sentence) {
-        var result = new StringBuilder();
-        var word = new StringBuilder();
-        for (var i = sentence.length() - 1; i >= 0; i--) {
-            if (sentence.charAt(i) == ' ' && !word.isEmpty()) {
-                result.append(word);
-                result.append(' ');
-                word.setLength(0);
-            } else if (sentence.charAt(i) != ' ') {
-                word.insert(0, sentence.charAt(i));
-            }
-        }
+  public static String reverseWords(String sentence) {
+    var result = new StringBuilder();
+    var word = new StringBuilder();
+    for (var i = sentence.length() - 1; i >= 0; i--) {
+      if (sentence.charAt(i) == ' ' && !word.isEmpty()) {
         result.append(word);
-        if (!result.isEmpty() && result.charAt(result.length() - 1) == ' ') {
-            result.deleteCharAt(result.length() - 1);
-        }
-        return result.toString();
+        result.append(' ');
+        word.setLength(0);
+      } else if (sentence.charAt(i) != ' ') {
+        word.insert(0, sentence.charAt(i));
+      }
     }
+    result.append(word);
+    if (!result.isEmpty() && result.charAt(result.length() - 1) == ' ') {
+      result.deleteCharAt(result.length() - 1);
+    }
+    return result.toString();
+  }
 
-    public static void main(String[] args) {
-        System.out.println(reverseWords(" lazy dog a over fox jumped brown quick The"));
-    }
+  public static void main(String[] args) {
+    System.out.println(reverseWords(" lazy dog a over fox jumped brown quick The"));
+  }
 }

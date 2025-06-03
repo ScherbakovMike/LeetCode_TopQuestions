@@ -40,55 +40,51 @@ We can see the cycle 0 --> 1 --> 0 --> ..., and while it is of size > 1, it has 
 We can see the cycle 3 --> 4 --> 3 --> ..., and all of its nodes are white (jumping in the same direction).
  */
 public class CircularArrayLoop {
-    public boolean circularArrayLoop(int[] nums) {
-        for (int start = 0; start < nums.length; start++) {
-            boolean positiveCycle = nums[start] > 0;
-            int slow = start;
-            int fast = start;
-            int count = 1;
-            boolean validCycle;
-            do {
-                slow = getNext(slow, nums[slow], nums.length);
-                validCycle = validateCycle(positiveCycle, nums[slow], nums.length);
-                if (!validCycle)
-                    break;
-                fast = getNext(fast, nums[fast], nums.length);
-                validCycle = validateCycle(positiveCycle, nums[fast], nums.length);
-                if (!validCycle)
-                    break;
-                fast = getNext(fast, nums[fast], nums.length);
-                if (fast == slow && count == 1) {
-                    break;
-                }
-                validCycle = validateCycle(positiveCycle, nums[fast], nums.length);
-                if (!validCycle)
-                    break;
-                count++;
-            } while (slow != fast);
-            if (fast == slow && count > 1 && validCycle) {
-                return true;
-            }
+  public boolean circularArrayLoop(int[] nums) {
+    for (int start = 0; start < nums.length; start++) {
+      boolean positiveCycle = nums[start] > 0;
+      int slow = start;
+      int fast = start;
+      int count = 1;
+      boolean validCycle;
+      do {
+        slow = getNext(slow, nums[slow], nums.length);
+        validCycle = validateCycle(positiveCycle, nums[slow], nums.length);
+        if (!validCycle) break;
+        fast = getNext(fast, nums[fast], nums.length);
+        validCycle = validateCycle(positiveCycle, nums[fast], nums.length);
+        if (!validCycle) break;
+        fast = getNext(fast, nums[fast], nums.length);
+        if (fast == slow && count == 1) {
+          break;
         }
-        return false;
+        validCycle = validateCycle(positiveCycle, nums[fast], nums.length);
+        if (!validCycle) break;
+        count++;
+      } while (slow != fast);
+      if (fast == slow && count > 1 && validCycle) {
+        return true;
+      }
     }
+    return false;
+  }
 
-    private static int getNext(int pos, int change, int length) {
-        change = change % length;
-        if (change >= 0) return (pos + change) % length;
-        int result = pos + change;
-        if (result < 0) {
-            return length + result;
-        } else return result;
-    }
+  private static int getNext(int pos, int change, int length) {
+    change = change % length;
+    if (change >= 0) return (pos + change) % length;
+    int result = pos + change;
+    if (result < 0) {
+      return length + result;
+    } else return result;
+  }
 
-    private static boolean validateCycle(boolean positiveCycle, int num, int length) {
-        if (num == length || num==-length) return false;
-        if (positiveCycle && num <= 0)
-            return false;
-        return positiveCycle || num < 0;
-    }
+  private static boolean validateCycle(boolean positiveCycle, int num, int length) {
+    if (num == length || num == -length) return false;
+    if (positiveCycle && num <= 0) return false;
+    return positiveCycle || num < 0;
+  }
 
-    public static void main(String[] args) {
-        System.out.println(new CircularArrayLoop().circularArrayLoop(new int[]{-1,-1,-3}));
-    }
+  public static void main(String[] args) {
+    System.out.println(new CircularArrayLoop().circularArrayLoop(new int[] {-1, -1, -3}));
+  }
 }

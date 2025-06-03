@@ -23,9 +23,9 @@ public class KthLargestElementInAnArrayCounting {
   }
 
   public static void main(String[] args) {
-    //var nums = new int[]{3, 2, 3, 1, 2, 4, 5, 5, 6};
-    //System.out.println(findKthLargest(nums, 4));
-    var nums = new int[]{3,2,1,5,6,4};
+    // var nums = new int[]{3, 2, 3, 1, 2, 4, 5, 5, 6};
+    // System.out.println(findKthLargest(nums, 4));
+    var nums = new int[] {3, 2, 1, 5, 6, 4};
     System.out.println(findKthLargest(nums, 2));
   }
 }

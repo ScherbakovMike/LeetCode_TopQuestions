@@ -28,48 +28,48 @@ It can be shown that it is not possible to obtain a palindrome in less than 2 mo
  */
 public class MinimumNumberOfMovesToMakePandrome {
 
-    public static int minMovesToMakePalindrome(String s) {
-        char[] chars = s.toCharArray();
-        int moves = 0;
-        int i = 0;
-        int j = s.length() - 1;
-        while (i < j) {
-            if (chars[i] == chars[j]) {
-                i++;
-                j--;
-                continue;
-            }
-            // looking the symbol in backward
-            int matchingIndex = j;
-            while ((matchingIndex > i) && chars[i] != chars[matchingIndex]) {
-                matchingIndex--;
-            }
-            if (matchingIndex == i) {
-                // chars[i] is the center of the odd-length string.
-                // this char should be moved to the center, push it for 1 index forward
-                moves++;
-                swap(chars, i, i + 1);
-            } else {
-                for (int l = matchingIndex; l < j; l++) {
-                    swap(chars, l, l + 1);
-                    moves++;
-                }
-                i++;
-                j--;
-            }
+  public static int minMovesToMakePalindrome(String s) {
+    char[] chars = s.toCharArray();
+    int moves = 0;
+    int i = 0;
+    int j = s.length() - 1;
+    while (i < j) {
+      if (chars[i] == chars[j]) {
+        i++;
+        j--;
+        continue;
+      }
+      // looking the symbol in backward
+      int matchingIndex = j;
+      while ((matchingIndex > i) && chars[i] != chars[matchingIndex]) {
+        matchingIndex--;
+      }
+      if (matchingIndex == i) {
+        // chars[i] is the center of the odd-length string.
+        // this char should be moved to the center, push it for 1 index forward
+        moves++;
+        swap(chars, i, i + 1);
+      } else {
+        for (int l = matchingIndex; l < j; l++) {
+          swap(chars, l, l + 1);
+          moves++;
         }
-        return moves;
+        i++;
+        j--;
+      }
     }
+    return moves;
+  }
 
-    private static void swap(char[] chars, int i, int j) {
-        char temp = chars[i];
-        chars[i] = chars[j];
-        chars[j] = temp;
-    }
+  private static void swap(char[] chars, int i, int j) {
+    char temp = chars[i];
+    chars[i] = chars[j];
+    chars[j] = temp;
+  }
 
-    public static void main(String[] args) {
-//        String s = "skwhhaaunskegmdtutlgtteunmuuludii";
-        String s = "caabb";
-        System.out.println(minMovesToMakePalindrome(s));
-    }
+  public static void main(String[] args) {
+    //        String s = "skwhhaaunskegmdtutlgtteunmuuludii";
+    String s = "caabb";
+    System.out.println(minMovesToMakePalindrome(s));
+  }
 }

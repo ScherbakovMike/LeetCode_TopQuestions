@@ -22,7 +22,7 @@ class Solution {
   }
 
   public static void main(String[] args) {
-    var test1 = new int[]{1, 1, 1, 2, 3, 3, 4, 4};
+    var test1 = new int[] {1, 1, 1, 2, 3, 3, 4, 4};
     System.out.println(new Solution().removeDuplicates(test1));
   }
 }

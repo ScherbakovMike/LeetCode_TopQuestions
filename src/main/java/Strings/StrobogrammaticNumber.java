@@ -10,26 +10,27 @@ Note: A strobogrammatic number appears the same when rotated 180 degrees (viewed
  */
 public class StrobogrammaticNumber {
 
-    public static boolean isStrobogrammatic(String num) {
-        int start = 0;
-        var end = num.length() - 1;
-        while (start < end) {
-            if (num.charAt(start) != num.charAt(end)) {
-                var exclusion = (num.charAt(start) == '6' && num.charAt(end) == '9')
-                        || (num.charAt(start) == '9' && num.charAt(end) == '6');
-                if (!exclusion) return false;
-            }
-            start++;
-            end--;
-        }
-        return true;
+  public static boolean isStrobogrammatic(String num) {
+    int start = 0;
+    var end = num.length() - 1;
+    while (start < end) {
+      if (num.charAt(start) != num.charAt(end)) {
+        var exclusion =
+            (num.charAt(start) == '6' && num.charAt(end) == '9')
+                || (num.charAt(start) == '9' && num.charAt(end) == '6');
+        if (!exclusion) return false;
+      }
+      start++;
+      end--;
     }
+    return true;
+  }
 
-    public static void main(String[] args) {
-        System.out.println(isStrobogrammatic("6"));
-        System.out.println(isStrobogrammatic("69"));
-        System.out.println(isStrobogrammatic("606"));
-        System.out.println(isStrobogrammatic("609"));
-        System.out.println(isStrobogrammatic("109"));
-    }
+  public static void main(String[] args) {
+    System.out.println(isStrobogrammatic("6"));
+    System.out.println(isStrobogrammatic("69"));
+    System.out.println(isStrobogrammatic("606"));
+    System.out.println(isStrobogrammatic("609"));
+    System.out.println(isStrobogrammatic("109"));
+  }
 }

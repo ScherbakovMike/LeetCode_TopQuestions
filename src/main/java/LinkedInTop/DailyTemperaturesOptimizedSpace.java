@@ -26,9 +26,9 @@ public class DailyTemperaturesOptimizedSpace {
   }
 
   public static void main(String[] args) {
-    var temperatures = new int[]{73, 74, 75, 71, 69, 72, 76, 73};
+    var temperatures = new int[] {73, 74, 75, 71, 69, 72, 76, 73};
     // [1, 1, 4, 2, 1, 1, 0, 0]
-    System.out.println(Arrays.toString(
-        new DailyTemperaturesOptimizedSpace().dailyTemperatures(temperatures)));
+    System.out.println(
+        Arrays.toString(new DailyTemperaturesOptimizedSpace().dailyTemperatures(temperatures)));
   }
 }

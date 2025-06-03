@@ -58,7 +58,7 @@ public class SearchInRotatedSortedArrayII {
   }
 
   public static void main(String[] args) {
-    var nums = new int[]{0};
+    var nums = new int[] {0};
     var target = 0;
     System.out.println(new SearchInRotatedSortedArrayII().search(nums, target));
   }

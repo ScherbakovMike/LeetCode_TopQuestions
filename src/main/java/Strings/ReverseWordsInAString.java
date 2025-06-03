@@ -40,47 +40,47 @@ Follow-up: If the string data type is mutable in your language, can you solve it
  */
 public class ReverseWordsInAString {
 
-    public String reverseWords(String s) {
-        char[] chars = s.toCharArray();
-        char[] result = new char[chars.length];
-        int pos = 0;
-        int wordStart = -1;
-        int wordEnd = -1;
-        int wordNumber = 0;
-        for (int i = chars.length - 1; i >= 0; i--) {
-            if (wordStart == -1 && chars[i] != ' ') {
-                wordStart = i;
-            }
-            if (wordStart != -1 && chars[i] != ' ') {
-                wordStart = i;
-            }
-            if (wordEnd == -1 && chars[i] != ' ') {
-                wordEnd = i;
-            }
-            if (wordStart != -1 && (chars[i] == ' ' || i == 0)) {
-                if (wordNumber != 0) {
-                    result[pos] = ' ';
-                    pos++;
-                }
-                copyWord(result, pos, chars, wordStart, wordEnd);
-                pos += (wordEnd - wordStart + 1);
-                wordNumber++;
-                wordStart = -1;
-                wordEnd = -1;
-            }
+  public String reverseWords(String s) {
+    char[] chars = s.toCharArray();
+    char[] result = new char[chars.length];
+    int pos = 0;
+    int wordStart = -1;
+    int wordEnd = -1;
+    int wordNumber = 0;
+    for (int i = chars.length - 1; i >= 0; i--) {
+      if (wordStart == -1 && chars[i] != ' ') {
+        wordStart = i;
+      }
+      if (wordStart != -1 && chars[i] != ' ') {
+        wordStart = i;
+      }
+      if (wordEnd == -1 && chars[i] != ' ') {
+        wordEnd = i;
+      }
+      if (wordStart != -1 && (chars[i] == ' ' || i == 0)) {
+        if (wordNumber != 0) {
+          result[pos] = ' ';
+          pos++;
         }
-        return new String(result, 0, pos);
+        copyWord(result, pos, chars, wordStart, wordEnd);
+        pos += (wordEnd - wordStart + 1);
+        wordNumber++;
+        wordStart = -1;
+        wordEnd = -1;
+      }
     }
+    return new String(result, 0, pos);
+  }
 
-    private void copyWord(char[] result, int pos, char[] chars, int wordStart, int wordEnd) {
-        for (int i = wordStart; i <= wordEnd; i++) {
-            result[pos++] = chars[i];
-        }
+  private void copyWord(char[] result, int pos, char[] chars, int wordStart, int wordEnd) {
+    for (int i = wordStart; i <= wordEnd; i++) {
+      result[pos++] = chars[i];
     }
+  }
 
-    public static void main(String[] args) {
-        ReverseWordsInAString reverseWordsInAString = new ReverseWordsInAString();
-        String s = "  hello world  ";
-        System.out.println(reverseWordsInAString.reverseWords(s)); // Output: "blue is sky the"
-    }
+  public static void main(String[] args) {
+    ReverseWordsInAString reverseWordsInAString = new ReverseWordsInAString();
+    String s = "  hello world  ";
+    System.out.println(reverseWordsInAString.reverseWords(s)); // Output: "blue is sky the"
+  }
 }

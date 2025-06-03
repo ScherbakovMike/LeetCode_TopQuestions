@@ -12,14 +12,16 @@ public class ShortestWordDistanceII {
   public ShortestWordDistanceII(String[] wordsDict) {
     for (var i = 0; i < wordsDict.length; i++) {
       final int finalI = i;
-      words.compute(wordsDict[i], (key, value) -> {
-        var list = value;
-        if (list == null) {
-          list = new ArrayList<>();
-        }
-        list.add(finalI);
-        return list;
-      });
+      words.compute(
+          wordsDict[i],
+          (key, value) -> {
+            var list = value;
+            if (list == null) {
+              list = new ArrayList<>();
+            }
+            list.add(finalI);
+            return list;
+          });
     }
   }
 
@@ -49,10 +51,11 @@ public class ShortestWordDistanceII {
   }
 
   public static void main(String[] args) {
-    ShortestWordDistanceII wordDistance = new ShortestWordDistanceII(
-      new String[]{"practice", "makes", "perfect", "coding", "makes"});
+    ShortestWordDistanceII wordDistance =
+        new ShortestWordDistanceII(
+            new String[] {"practice", "makes", "perfect", "coding", "makes"});
     System.out.println(wordDistance.shortest("coding", "practice")); // return 3
     System.out.println(wordDistance.shortest("coding", "practice")); // return 3
-    System.out.println(wordDistance.shortest("makes", "coding"));    // return 1
+    System.out.println(wordDistance.shortest("makes", "coding")); // return 1
   }
 }

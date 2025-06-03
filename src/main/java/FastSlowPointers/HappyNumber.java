@@ -38,27 +38,27 @@ Constraints:
  */
 public class HappyNumber {
 
-    public boolean isHappy(int n) {
-        int slowRunner = getNext(n);
-        int fastRunner = getNext(slowRunner);
-        while (slowRunner != 1 && fastRunner != 1 && slowRunner != fastRunner) {
-            slowRunner = getNext(slowRunner);
-            fastRunner = getNext(getNext(fastRunner));
-        }
-        return slowRunner == 1 || fastRunner == 1;
+  public boolean isHappy(int n) {
+    int slowRunner = getNext(n);
+    int fastRunner = getNext(slowRunner);
+    while (slowRunner != 1 && fastRunner != 1 && slowRunner != fastRunner) {
+      slowRunner = getNext(slowRunner);
+      fastRunner = getNext(getNext(fastRunner));
     }
+    return slowRunner == 1 || fastRunner == 1;
+  }
 
-    private int getNext(int n) {
-        int result = 0;
-        while (n != 0) {
-            int digit = n % 10;
-            result += (digit * digit);
-            n = n / 10;
-        }
-        return result;
+  private int getNext(int n) {
+    int result = 0;
+    while (n != 0) {
+      int digit = n % 10;
+      result += (digit * digit);
+      n = n / 10;
     }
+    return result;
+  }
 
-    public static void main(String[] args) {
-        System.out.println(new HappyNumber().isHappy(2));
-    }
+  public static void main(String[] args) {
+    System.out.println(new HappyNumber().isHappy(2));
+  }
 }

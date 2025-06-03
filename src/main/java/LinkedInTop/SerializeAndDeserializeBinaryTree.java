@@ -92,10 +92,16 @@ public class SerializeAndDeserializeBinaryTree {
   }
 
   public static void main(String[] args) {
-//    var tree = new TreeNode(1, new TreeNode(2), new TreeNode(3, new TreeNode(4), new TreeNode(5)));
-    //var tree = TreeNode.of(new Integer[]{1, 2, 3, null, null, 4, 5});
-    var tree = TreeNode.of(new Integer[]{4, -7, -3, null, null, -9, -3, 9, -7, -4, null, 6, null, -6, -6, null, null, 0, 6, 5, null, 9, null, null, -1, -4, null, null, null, -2});
-    //var tree = new TreeNode(1);
+    //    var tree = new TreeNode(1, new TreeNode(2), new TreeNode(3, new TreeNode(4), new
+    // TreeNode(5)));
+    // var tree = TreeNode.of(new Integer[]{1, 2, 3, null, null, 4, 5});
+    var tree =
+        TreeNode.of(
+            new Integer[] {
+              4, -7, -3, null, null, -9, -3, 9, -7, -4, null, 6, null, -6, -6, null, null, 0, 6, 5,
+              null, 9, null, null, -1, -4, null, null, null, -2
+            });
+    // var tree = new TreeNode(1);
     var serializedTree = new SerializeAndDeserializeBinaryTree().serialize(tree);
     System.out.println(serializedTree);
     var deserializedTree = new SerializeAndDeserializeBinaryTree().deserialize(serializedTree);

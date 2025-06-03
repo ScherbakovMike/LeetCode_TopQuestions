@@ -60,7 +60,27 @@ public class TextJustification {
   }
 
   public static void main(String[] args) {
-    var words = new String[]{"Science", "is", "what", "we", "understand", "well", "enough", "to", "explain", "to", "a", "computer.", "Art", "is", "everything", "else", "we", "do"};
+    var words =
+        new String[] {
+          "Science",
+          "is",
+          "what",
+          "we",
+          "understand",
+          "well",
+          "enough",
+          "to",
+          "explain",
+          "to",
+          "a",
+          "computer.",
+          "Art",
+          "is",
+          "everything",
+          "else",
+          "we",
+          "do"
+        };
     var maxWidth = 20;
     System.out.println(fullJustify(words, maxWidth));
   }

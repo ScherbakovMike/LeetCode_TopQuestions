@@ -110,16 +110,19 @@ public class ImplementBinaryTree {
 
       @Override
       public String toString() {
-        return String.format("value = %s%nleft = %s%nright = %s%n", value,
-            left == null ? "" : left.toString(),
-            right == null ? "" : right.toString());
+        return String.format(
+            "value = %s%nleft = %s%nright = %s%n",
+            value, left == null ? "" : left.toString(), right == null ? "" : right.toString());
       }
 
       public String toString(int tabs) {
-        return String.format("value = %s%n%sleft = %s%n%sright = %s%n",
+        return String.format(
+            "value = %s%n%sleft = %s%n%sright = %s%n",
             value,
-            "\t".repeat(tabs), left == null ? "" : left.toString(tabs + 1),
-            "\t".repeat(tabs), right == null ? "" : right.toString(tabs + 1));
+            "\t".repeat(tabs),
+            left == null ? "" : left.toString(tabs + 1),
+            "\t".repeat(tabs),
+            right == null ? "" : right.toString(tabs + 1));
       }
 
       public Node(T value, Node<T> left, Node<T> right) {
@@ -132,10 +135,10 @@ public class ImplementBinaryTree {
 
   public static void main(String[] args) {
     /*
-                50
-           10         60
-         5    15   55   65
-     */
+               50
+          10         60
+        5    15   55   65
+    */
     var tree = new BinaryTree<>(50);
     tree.insert(10);
     tree.insert(5);

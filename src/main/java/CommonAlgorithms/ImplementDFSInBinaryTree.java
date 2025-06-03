@@ -6,29 +6,29 @@ public class ImplementDFSInBinaryTree {
 
   private static void dfsPreOrder(Node node) {
     System.out.println(node.value);
-    if(node.left!=null) {
+    if (node.left != null) {
       dfsPreOrder(node.left);
     }
-    if(node.right!=null) {
+    if (node.right != null) {
       dfsPreOrder(node.right);
     }
   }
 
   private static void dfsInOrder(Node node) {
-    if(node.left!=null) {
+    if (node.left != null) {
       dfsInOrder(node.left);
     }
     System.out.println(node.value);
-    if(node.right!=null) {
+    if (node.right != null) {
       dfsInOrder(node.right);
     }
   }
 
   private static void dfsPostOrder(Node node) {
-    if(node.left!=null) {
+    if (node.left != null) {
       dfsPostOrder(node.left);
     }
-    if(node.right!=null) {
+    if (node.right != null) {
       dfsPostOrder(node.right);
     }
     System.out.println(node.value);

@@ -46,21 +46,21 @@ public class SplitACircularLinkedList {
     ListNode n3 = slow.next;
     slow.next = list;
     fast.next = n3;
-    return new ListNode[] { list, n3 };
+    return new ListNode[] {list, n3};
   }
 
   public static void main(String[] args) {
-//    ListNode test1 = ListNode.of(1, 2, 3, 4, 5, 6);
-//    test1.next.next.next.next.next.next = test1;
-//
-//    System.out.println(
-//        Arrays.toString(new SplitACircularLinkedList().splitCircularLinkedList(test1)));
-//
-//    ListNode test2 = ListNode.of(1, 2, 3, 4, 5, 6, 7);
-//    test2.next.next.next.next.next.next.next = test2;
-//
-//    System.out.println(
-//        Arrays.toString(new SplitACircularLinkedList().splitCircularLinkedList(test2)));
+    //    ListNode test1 = ListNode.of(1, 2, 3, 4, 5, 6);
+    //    test1.next.next.next.next.next.next = test1;
+    //
+    //    System.out.println(
+    //        Arrays.toString(new SplitACircularLinkedList().splitCircularLinkedList(test1)));
+    //
+    //    ListNode test2 = ListNode.of(1, 2, 3, 4, 5, 6, 7);
+    //    test2.next.next.next.next.next.next.next = test2;
+    //
+    //    System.out.println(
+    //        Arrays.toString(new SplitACircularLinkedList().splitCircularLinkedList(test2)));
 
     ListNode test3 = ListNode.of(1, 5, 7);
     test3.next.next.next = test3;

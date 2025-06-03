@@ -1,8 +1,6 @@
 package LinkedInTop;
 
 import java.util.Arrays;
-import java.util.BitSet;
-import java.util.HashSet;
 
 public class PartitionToKEqualSumSubsetsNaive {
 
@@ -19,8 +17,8 @@ public class PartitionToKEqualSumSubsetsNaive {
     return backtrack(nums, 0, 0, k, desiredSum, taken);
   }
 
-  private boolean backtrack(int[] nums, int count, int curSum, int k, int targetSum,
-      boolean[] taken) {
+  private boolean backtrack(
+      int[] nums, int count, int curSum, int k, int targetSum, boolean[] taken) {
 
     var n = nums.length;
     if (count == k - 1) {
@@ -46,11 +44,12 @@ public class PartitionToKEqualSumSubsetsNaive {
   }
 
   public static void main(String[] args) {
-    System.out.println(new PartitionToKEqualSumSubsetsNaive().canPartitionKSubsets(
-        new int[]{4, 3, 2, 3, 5, 2, 1},
-        4) == true);
-    System.out.println(new PartitionToKEqualSumSubsetsNaive().canPartitionKSubsets(
-        new int[]{1, 2, 3, 4},
-        3) == false);
+    System.out.println(
+        new PartitionToKEqualSumSubsetsNaive()
+                .canPartitionKSubsets(new int[] {4, 3, 2, 3, 5, 2, 1}, 4)
+            == true);
+    System.out.println(
+        new PartitionToKEqualSumSubsetsNaive().canPartitionKSubsets(new int[] {1, 2, 3, 4}, 3)
+            == false);
   }
 }

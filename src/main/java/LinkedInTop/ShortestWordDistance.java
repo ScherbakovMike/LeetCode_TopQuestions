@@ -23,12 +23,12 @@ public class ShortestWordDistance {
   }
 
   public static void main(String[] args) {
-    var wordsDict = new String[]{"practice", "makes", "perfect", "coding", "makes"};
+    var wordsDict = new String[] {"practice", "makes", "perfect", "coding", "makes"};
     var word1 = "makes";
     var word2 = "coding";
-//    var wordsDict = new String[]{"a", "b", "c", "d", "d"};
-//    var word1 = "a";
-//    var word2 = "d";
+    //    var wordsDict = new String[]{"a", "b", "c", "d", "d"};
+    //    var word1 = "a";
+    //    var word2 = "d";
     System.out.println(shortestDistance(wordsDict, word1, word2));
   }
 }

@@ -25,8 +25,8 @@ public class ImplementGraphDFS {
     return searchDFS(startName, searchable, searched);
   }
 
-  private static String searchDFS(String currentName, String searchable,
-      ArrayList<String> searched) {
+  private static String searchDFS(
+      String currentName, String searchable, ArrayList<String> searched) {
     if (searched.contains(currentName)) {
       return null;
     }

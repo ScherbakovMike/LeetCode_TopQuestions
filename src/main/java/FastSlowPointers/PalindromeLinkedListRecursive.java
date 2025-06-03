@@ -24,41 +24,39 @@ Follow up: Could you do it in O(n) time and O(1) space?
  */
 public class PalindromeLinkedListRecursive {
 
-    private static ListNode leftNode = null;
+  private static ListNode leftNode = null;
 
-    public static boolean palindrome(ListNode head) {
-        // We will recursively traverse a list until it reaches the end
-        // Then we will compare values at the exit from the function
-        leftNode = head;
-        return traverseListRecursively(head);
-    }
+  public static boolean palindrome(ListNode head) {
+    // We will recursively traverse a list until it reaches the end
+    // Then we will compare values at the exit from the function
+    leftNode = head;
+    return traverseListRecursively(head);
+  }
 
-    private static boolean traverseListRecursively(ListNode head) {
-        if (head == null) {
-            return true;
-        }
-        if (!traverseListRecursively(head.next)) return false;
-        if (head.val != leftNode.val) return false;
-        leftNode = leftNode.next;
-        return true;
+  private static boolean traverseListRecursively(ListNode head) {
+    if (head == null) {
+      return true;
     }
+    if (!traverseListRecursively(head.next)) return false;
+    if (head.val != leftNode.val) return false;
+    leftNode = leftNode.next;
+    return true;
+  }
 
-    public static void main(String[] args) {
-//        ListNode head = null;
-//        ListNode head = new ListNode(1);
-//        ListNode head = new ListNode(1, new ListNode(2));
-//        ListNode head = new ListNode(1, new ListNode(1));
-//        ListNode head = new ListNode(1,
-//                new ListNode(2,
-//                        new ListNode(2,
-//                                new ListNode(1))));
-//        ListNode head = new ListNode(1,
-//                new ListNode(2,
-//                        new ListNode(3,
-//                                new ListNode(2, new ListNode(1)))));
-        ListNode head = new ListNode(1,
-                new ListNode(0,
-                        new ListNode(1)));
-        System.out.println(palindrome(head));
-    }
+  public static void main(String[] args) {
+    //        ListNode head = null;
+    //        ListNode head = new ListNode(1);
+    //        ListNode head = new ListNode(1, new ListNode(2));
+    //        ListNode head = new ListNode(1, new ListNode(1));
+    //        ListNode head = new ListNode(1,
+    //                new ListNode(2,
+    //                        new ListNode(2,
+    //                                new ListNode(1))));
+    //        ListNode head = new ListNode(1,
+    //                new ListNode(2,
+    //                        new ListNode(3,
+    //                                new ListNode(2, new ListNode(1)))));
+    ListNode head = new ListNode(1, new ListNode(0, new ListNode(1)));
+    System.out.println(palindrome(head));
+  }
 }

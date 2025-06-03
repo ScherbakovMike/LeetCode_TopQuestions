@@ -6,14 +6,14 @@ public class SecondMinimumNodeInABinaryTree {
 
   public static void main(String[] args) {
     var root = new TreeNode(2, new TreeNode(2), new TreeNode(5, new TreeNode(5), new TreeNode(7)));
-    //var root = new TreeNode(2, new TreeNode(2), new TreeNode(2));
-//    var root = new TreeNode(1,
-//      new TreeNode(1,
-//        new TreeNode(1),
-//        new TreeNode(1)),
-//      new TreeNode(1,
-//        new TreeNode(1),
-//        new TreeNode(1)));
+    // var root = new TreeNode(2, new TreeNode(2), new TreeNode(2));
+    //    var root = new TreeNode(1,
+    //      new TreeNode(1,
+    //        new TreeNode(1),
+    //        new TreeNode(1)),
+    //      new TreeNode(1,
+    //        new TreeNode(1),
+    //        new TreeNode(1)));
 
     System.out.println(new SecondMinimumNodeInABinaryTree().findSecondMinimumValue(root));
   }
@@ -25,8 +25,7 @@ public class SecondMinimumNodeInABinaryTree {
     Integer minValue = null;
     while (!queue.isEmpty()) {
       var curElem = queue.removeLast();
-      if (curElem.val > maxValue
-        && (minValue == null || curElem.val < minValue)) {
+      if (curElem.val > maxValue && (minValue == null || curElem.val < minValue)) {
         if (curElem.val == (maxValue - 1)) {
           return curElem.val;
         }

@@ -11,8 +11,12 @@ public class GenerateParentheses {
     return answer;
   }
 
-  private void backtrack(ArrayList<String> answer, StringBuilder currentString, byte leftCount,
-      byte rightCount, byte n) {
+  private void backtrack(
+      ArrayList<String> answer,
+      StringBuilder currentString,
+      byte leftCount,
+      byte rightCount,
+      byte n) {
     if (currentString.length() == 2 * n) {
       answer.add(currentString.toString());
       return;

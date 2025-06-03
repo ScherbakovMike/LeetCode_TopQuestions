@@ -4,15 +4,15 @@ import java.util.Map;
 
 public class RomanToInt {
 
-  private static final Map<Character, Short> numbers = Map.of(
-    'I', (short) 1,
-    'V', (short) 5,
-    'X', (short) 10,
-    'L', (short) 50,
-    'C', (short) 100,
-    'D', (short) 500,
-    'M', (short) 1000
-  );
+  private static final Map<Character, Short> numbers =
+      Map.of(
+          'I', (short) 1,
+          'V', (short) 5,
+          'X', (short) 10,
+          'L', (short) 50,
+          'C', (short) 100,
+          'D', (short) 500,
+          'M', (short) 1000);
 
   public static int romanToInt(String s) {
     short result = 0;

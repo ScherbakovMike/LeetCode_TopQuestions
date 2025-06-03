@@ -18,16 +18,11 @@ public class MinimumDepthOfBinaryTree {
     }
     return Math.min(
         root.left == null ? Integer.MAX_VALUE : minDepthR(root.left, minDepth + 1),
-        root.right == null ? Integer.MAX_VALUE : minDepthR(root.right, minDepth + 1)
-    );
+        root.right == null ? Integer.MAX_VALUE : minDepthR(root.right, minDepth + 1));
   }
 
   public static void main(String[] args) {
-    var root = new TreeNode(2,
-        null,
-        new TreeNode(3,
-            null,
-            new TreeNode(4)));
+    var root = new TreeNode(2, null, new TreeNode(3, null, new TreeNode(4)));
     System.out.println(new MinimumDepthOfBinaryTree().minDepth(root));
   }
 }

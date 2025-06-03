@@ -36,12 +36,12 @@ Constraints:
 s consists only of printable ASCII characters.
 */
 public class ValidPalindrome {
-    public boolean isPalindrome(String s) {
-        var cleanedString = s.replaceAll("[^\\p{L}]", "").toLowerCase();
-        return cleanedString.contentEquals(new StringBuilder(cleanedString).reverse());
-    }
+  public boolean isPalindrome(String s) {
+    var cleanedString = s.replaceAll("[^\\p{L}]", "").toLowerCase();
+    return cleanedString.contentEquals(new StringBuilder(cleanedString).reverse());
+  }
 
-    public static void main(String[] args) {
-        System.out.println(new ValidPalindrome().isPalindrome("A man, a plan, a canal: Panama"));
-    }
+  public static void main(String[] args) {
+    System.out.println(new ValidPalindrome().isPalindrome("A man, a plan, a canal: Panama"));
+  }
 }

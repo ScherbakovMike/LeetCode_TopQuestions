@@ -23,19 +23,19 @@ class RandomizedSet {
       return false;
     }
     list.add(val);
-    map.put(val, list.size()-1);
+    map.put(val, list.size() - 1);
     return true;
   }
 
   public boolean remove(int val) {
     var pos = map.get(val);
-    if (pos==null) {
+    if (pos == null) {
       return false;
     }
-    var buf = list.get(list.size()-1);
-    list.set(list.size()-1, val);
+    var buf = list.get(list.size() - 1);
+    list.set(list.size() - 1, val);
     list.set(pos, buf);
-    list.remove(list.size()-1);
+    list.remove(list.size() - 1);
     map.put(buf, pos);
     map.remove(val);
     return true;
@@ -57,9 +57,7 @@ class RandomizedSet {
 }
 
 /**
- * Your RandomizedSet object will be instantiated and called as such:
- * RandomizedSet obj = new RandomizedSet();
- * boolean param_1 = obj.insert(val);
- * boolean param_2 = obj.remove(val);
- * int param_3 = obj.getRandom();
+ * Your RandomizedSet object will be instantiated and called as such: RandomizedSet obj = new
+ * RandomizedSet(); boolean param_1 = obj.insert(val); boolean param_2 = obj.remove(val); int
+ * param_3 = obj.getRandom();
  */

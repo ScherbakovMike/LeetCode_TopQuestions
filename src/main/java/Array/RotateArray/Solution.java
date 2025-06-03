@@ -18,8 +18,8 @@ class Solution {
   }
 
   public static void main(String[] args) {
-    //var test = new int[]{-1, -100, 3, 99};
-    var test = new int[]{1, 2, 3, 4, 5, 6, 7};
+    // var test = new int[]{-1, -100, 3, 99};
+    var test = new int[] {1, 2, 3, 4, 5, 6, 7};
     new Solution().rotate(test, 3);
     for (int i : test) {
       System.out.println(String.valueOf(i) + ", ");

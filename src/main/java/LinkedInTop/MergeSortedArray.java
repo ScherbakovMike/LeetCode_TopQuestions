@@ -20,8 +20,8 @@ public class MergeSortedArray {
   }
 
   public static void main(String[] args) {
-    var nums1 = new int[]{1};
-    var nums2 = new int[]{};
+    var nums1 = new int[] {1};
+    var nums2 = new int[] {};
     merge(nums1, 1, nums2, 0);
 
     System.out.println(Arrays.toString(nums1));

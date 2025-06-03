@@ -63,18 +63,18 @@ public class ImplementBellmanFordAlgorithm {
     // Every edge has three values (u, v, w) where
     // the edge is from vertex u to v. And weight
     // of the edge is w.
-    var graph = new int[][]{
-        {0, 1, -1},
-        {0, 2, 4},
-        {1, 2, 3},
-        {1, 3, 2},
-        {1, 4, 2},
-        {3, 2, 5},
-        {3, 1, 1},
-        {4, 3, -3}
-    };
+    var graph =
+        new int[][] {
+          {0, 1, -1},
+          {0, 2, 4},
+          {1, 2, 3},
+          {1, 3, 2},
+          {1, 4, 2},
+          {3, 2, 5},
+          {3, 1, 1},
+          {4, 3, -3}
+        };
 
     BellmanFord(graph, vertices, edges, 0);
   }
 }
-

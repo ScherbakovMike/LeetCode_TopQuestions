@@ -23,7 +23,7 @@ public class ImplementQueue {
       if (head == null) {
         head = node;
       } else {
-       tail.prev = node;
+        tail.prev = node;
       }
       tail = node;
     }

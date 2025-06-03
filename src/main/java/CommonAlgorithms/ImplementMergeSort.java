@@ -36,7 +36,7 @@ public class ImplementMergeSort {
   }
 
   public static void main(String[] args) {
-    var array = new int[]{10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+    var array = new int[] {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
     System.out.println(Arrays.toString(array));
     mergeSort(array);
     System.out.println(Arrays.toString(array));

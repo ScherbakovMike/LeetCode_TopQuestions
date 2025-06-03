@@ -5,8 +5,7 @@ public class ReverseInteger {
   public int reverse(int x) {
     try {
       return Integer.parseInt(
-          (x < 0 ? "-" : "") + new StringBuilder(String.valueOf(Math.abs(x))).reverse()
-      );
+          (x < 0 ? "-" : "") + new StringBuilder(String.valueOf(Math.abs(x))).reverse());
     } catch (NumberFormatException e) {
       return 0;
     }

@@ -13,7 +13,7 @@ public class StringToInteger {
     var pos = 0;
     while (pos < s.length()) {
       var ch = s.charAt(pos);
-      if (buffer.length()==0 && ch == ' ') {
+      if (buffer.length() == 0 && ch == ' ') {
         pos++;
         continue;
       }
@@ -52,7 +52,7 @@ public class StringToInteger {
         addition = Math.multiplyExact(addition, ch);
         result = Math.addExact(result, addition);
         pos--;
-        if(pos<0 ) {
+        if (pos < 0) {
           result = Math.negateExact(result);
         }
       } catch (ArithmeticException e) {
