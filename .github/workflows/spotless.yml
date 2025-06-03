@@ -34,4 +34,5 @@ jobs:
           if [[ -n $(git status --porcelain) ]]; then
             git add .
             git commit -m 'chore: apply Spotless formatting [auto-commit]'
-            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:${{ github.ref_name }}
+            git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git HEAD:master
+          fi
