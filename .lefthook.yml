@@ -1,0 +1,6 @@
+# .lefthook.yml
+pre-push:
+  parallel: true
+  commands:
+    spotless:
+      run: mvn spotless:check
