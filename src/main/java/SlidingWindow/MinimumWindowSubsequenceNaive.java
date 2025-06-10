@@ -36,7 +36,7 @@ Constraints:
 1 <= s2.length <= 100
 s1 and s2 consist of lowercase English letters.
 */
-public class MinimumWindowSubsequence {
+public class MinimumWindowSubsequenceNaive {
 
   public String minWindow(String s1, String s2) {
     if (s2.isEmpty()) {
@@ -74,7 +74,7 @@ public class MinimumWindowSubsequence {
   @ParameterizedTest
   @MethodSource("testData")
   public void test(String s1, String s2, String expected) {
-    assertThat(new MinimumWindowSubsequence().minWindow(s1, s2), Matchers.is(expected));
+    assertThat(new MinimumWindowSubsequenceNaive().minWindow(s1, s2), Matchers.is(expected));
   }
 
   public static Stream<Arguments> testData() {
