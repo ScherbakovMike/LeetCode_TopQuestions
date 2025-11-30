@@ -50,17 +50,19 @@ public class ThreeSumDictionary {
 
   @Test
   void test() {
-    assertEquals(List.of(List.of(0, 0, 0)), new ThreeSumDictionary().threeSum(new int[]{0, 0, 0}));
+    assertEquals(List.of(List.of(0, 0, 0)), new ThreeSumDictionary().threeSum(new int[] {0, 0, 0}));
     assertEquals(
-        List.of(List.of(-10, 5, 5), List.of(-5, 5, 0), List.of(-4, 2, 2), List.of(-3, 2, 1),
-            List.of(-3, 5, -2), List.of(-2, 2, 0)),
-        new ThreeSumDictionary().threeSum(
-            new int[]{2, -3, 0, -2, -5, -5, -4, 1, 2, -2, 2, 0, 2, -4, 5, 5, -10})
-    );
+        List.of(
+            List.of(-10, 5, 5),
+            List.of(-5, 5, 0),
+            List.of(-4, 2, 2),
+            List.of(-3, 2, 1),
+            List.of(-3, 5, -2),
+            List.of(-2, 2, 0)),
+        new ThreeSumDictionary()
+            .threeSum(new int[] {2, -3, 0, -2, -5, -5, -4, 1, 2, -2, 2, 0, 2, -4, 5, 5, -10}));
     assertEquals(
         List.of(List.of(-1, 1, 0), List.of(-1, 2, -1)),
-        new ThreeSumDictionary().threeSum(
-            new int[]{-1, 0, 1, 2, -1, -4})
-    );
+        new ThreeSumDictionary().threeSum(new int[] {-1, 0, 1, 2, -1, -4}));
   }
 }
