@@ -1,4 +1,4 @@
-package Algorithms.sorting;
+package Algorithms.sorting.bubblesort;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

@@ -1,20 +1,26 @@
-package Algorithms.sorting;
+package Algorithms.sorting.bubblesort;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
-public class BubbleSortClassic {
+public class BubbleSortTrackLastSwapPosition {
 
   public int[] sort(int[] nums) {
     var iterations = 0;
-    for (int i = 0; i < nums.length - 1; i++) {
-      for (int j = 0; j < nums.length - 1 - i; j++) {
+    int lastSwapPosition = nums.length - 1;
+    while (lastSwapPosition>0) {
+      int n = lastSwapPosition;
+      for (int j = 0; j <  n; j++) {
         iterations++;
         if (nums[j] > nums[j + 1]) {
           swap(nums, j, j + 1);
+          lastSwapPosition = j;
         }
+      }
+      if(lastSwapPosition==n) {
+        break;
       }
     }
     System.out.printf("Iterations completed: %d%n", iterations);
