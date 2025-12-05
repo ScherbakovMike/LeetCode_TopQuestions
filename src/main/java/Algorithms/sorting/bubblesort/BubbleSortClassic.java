@@ -29,8 +29,11 @@ public class BubbleSortClassic {
 
   @Test
   void test() {
-    assertEquals(0, Arrays.compare(new int[]{1, 2, 3, 4, 5, 6}, sort(new int[]{6, 5, 4, 3, 2, 1})));
-    assertEquals(0, Arrays.compare(new int[]{1, 2, 3, 4, 5, 6}, sort(new int[]{1, 2, 3, 4, 6, 5})));
-    assertEquals(0, Arrays.compare(new int[]{1, 2, 3, 4, 5, 6}, sort(new int[]{2, 1, 3, 4, 5, 6})));
+    assertEquals(
+        0, Arrays.compare(new int[] {1, 2, 3, 4, 5, 6}, sort(new int[] {6, 5, 4, 3, 2, 1})));
+    assertEquals(
+        0, Arrays.compare(new int[] {1, 2, 3, 4, 5, 6}, sort(new int[] {1, 2, 3, 4, 6, 5})));
+    assertEquals(
+        0, Arrays.compare(new int[] {1, 2, 3, 4, 5, 6}, sort(new int[] {2, 1, 3, 4, 5, 6})));
   }
 }
