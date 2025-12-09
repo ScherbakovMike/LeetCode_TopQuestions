@@ -1,5 +1,6 @@
 package Algorithms.sorting.selectionsort;
 
+import static CommonAlgorithms.Util.swap;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
@@ -28,12 +29,6 @@ public class SelectionSortBidirectional {
             }
         }
         return nums;
-    }
-
-    private void swap(int[] nums, int i, int j) {
-        int buf = nums[i];
-        nums[i] = nums[j];
-        nums[j] = buf;
     }
 
     @Test
