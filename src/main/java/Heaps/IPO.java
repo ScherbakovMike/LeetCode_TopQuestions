@@ -1,11 +1,10 @@
 package Heaps;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.jupiter.api.Test;
 
 /*
 https://leetcode.com/problems/ipo/description/
@@ -42,40 +41,40 @@ n == capital.length
 0 <= capital[i] <= 109
  */
 public class IPO {
-    public static int maximumCapital(int c, int k, int[] capitals, int[] profits) {
+  public static int maximumCapital(int c, int k, int[] capitals, int[] profits) {
 
-        // algorithm
-        // 1. Create a min heap with capitals. Store int{capital, i}
-        // 2. k times use the min heap with capitals, each iteration:
-        //    2.1. create a max heap for all affordable projects. Maximize profit.
-        //    2.2. peek the top of the max heap
-        // 3. Add profit to the curent balance
-        var capitalQueue = new PriorityQueue<int[]>(Comparator.comparingInt(arr -> arr[0]));
-        var profitQueue = new PriorityQueue<Integer>(Comparator.reverseOrder());
-        for (var i = 0; i < capitals.length; i++) {
-            capitalQueue.offer(new int[]{capitals[i], i});
-        }
-        for (var i = 0; i < k; i++) {
-            while(!capitalQueue.isEmpty()) {
-                var requiredCapital = capitalQueue.peek();
-                if(requiredCapital[0]<=c) {
-                    capitalQueue.poll();
-                    profitQueue.offer(profits[requiredCapital[1]]);
-                } else break;
-            }
-            if(profitQueue.isEmpty()) return c;
-            c += profitQueue.poll();
-        }
-        return c;
+    // algorithm
+    // 1. Create a min heap with capitals. Store int{capital, i}
+    // 2. k times use the min heap with capitals, each iteration:
+    //    2.1. create a max heap for all affordable projects. Maximize profit.
+    //    2.2. peek the top of the max heap
+    // 3. Add profit to the curent balance
+    var capitalQueue = new PriorityQueue<int[]>(Comparator.comparingInt(arr -> arr[0]));
+    var profitQueue = new PriorityQueue<Integer>(Comparator.reverseOrder());
+    for (var i = 0; i < capitals.length; i++) {
+      capitalQueue.offer(new int[] {capitals[i], i});
     }
+    for (var i = 0; i < k; i++) {
+      while (!capitalQueue.isEmpty()) {
+        var requiredCapital = capitalQueue.peek();
+        if (requiredCapital[0] <= c) {
+          capitalQueue.poll();
+          profitQueue.offer(profits[requiredCapital[1]]);
+        } else break;
+      }
+      if (profitQueue.isEmpty()) return c;
+      c += profitQueue.poll();
+    }
+    return c;
+  }
 
-    @Test
-    void maximizesCapitalForExample1() {
-        assertEquals(4, IPO.maximumCapital(0, 2, new int[]{0, 1, 1}, new int[]{1, 2, 3}));
-    }
+  @Test
+  void maximizesCapitalForExample1() {
+    assertEquals(4, IPO.maximumCapital(0, 2, new int[] {0, 1, 1}, new int[] {1, 2, 3}));
+  }
 
-    @Test
-    void maximizesCapitalForExample2() {
-        assertEquals(6, IPO.maximumCapital(0, 3, new int[]{0, 1, 2}, new int[]{1, 2, 3}));
-    }
+  @Test
+  void maximizesCapitalForExample2() {
+    assertEquals(6, IPO.maximumCapital(0, 3, new int[] {0, 1, 2}, new int[] {1, 2, 3}));
+  }
 }
