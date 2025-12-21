@@ -16,22 +16,22 @@ KthLargest(int k, int[] nums) Initializes the object with the integer k and the 
 int add(int val) Adds a new test score val to the stream and returns the element representing the kth largest element in the pool of test scores so far.
  */
 public class KthLargestElementInAStream {
-    private final PriorityQueue<Integer> tops = new PriorityQueue<>();
-    private final int k;
+  private final PriorityQueue<Integer> tops = new PriorityQueue<>();
+  private final int k;
 
-    public KthLargestElementInAStream(int k, int[] nums) {
-        for (var num : nums) {
-            tops.offer(num);
-        }
-        while (this.tops.size() > k) this.tops.poll();
-        this.k = k;
+  public KthLargestElementInAStream(int k, int[] nums) {
+    for (var num : nums) {
+      tops.offer(num);
     }
+    while (this.tops.size() > k) this.tops.poll();
+    this.k = k;
+  }
 
-    public int add(int val) {
-        var min = this.tops.peek();
-        if (this.tops.size() >= k && val < min) return min;
-        this.tops.offer(val);
-        if (this.tops.size() > k) this.tops.poll();
-        return this.tops.peek();
-    }
+  public int add(int val) {
+    var min = this.tops.peek();
+    if (this.tops.size() >= k && val < min) return min;
+    this.tops.offer(val);
+    if (this.tops.size() > k) this.tops.poll();
+    return this.tops.peek();
+  }
 }
